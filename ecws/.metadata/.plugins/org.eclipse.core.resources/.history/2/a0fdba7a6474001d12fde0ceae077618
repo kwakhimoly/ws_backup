@@ -1,0 +1,10 @@
+
+public class RSMain2 {
+	public static void main(String[] args) {
+		int a = 2;
+		for (int i = 1; i <= 9; i++) {
+			System.out.printf("2 x %d = %d\n", i, a * i);
+//			a 자리에 2 바로 넣어줘도 됨! 변수 설정하면 메모리 차지하니까
+		}
+	}
+}

@@ -1,0 +1,77 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!-- 메뉴 -->
+<meta charset="UTF-8">
+<!-- 한글 깨짐 방지 -->
+<%
+// 공통변수 CONTEXT 만들어 놓고 갖다 쓰기
+String CONTEXT = request.getContextPath();
+%>
+
+
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: lavenderblush">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="<%=CONTEXT%>"> <img
+			src="<%=CONTEXT%>/images/15.jpg" alt="Avatar Logo"
+			style="width: 40px;" class="rounded-pill">
+		</a>
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					href="<%=CONTEXT%>/guestbook.do?cmd=list&pg=0">List</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="<%=CONTEXT%>/guestbook.do?cmd=write">Write</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="<%=CONTEXT%>/member.do?cmd=member_write">Sign up</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" role="button"
+					data-bs-toggle="dropdown">Gallery</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="<%=CONTEXT%>/gallery.do?cmd=list">Gallery list</a></li>
+						<li><a class="dropdown-item" href="<%=CONTEXT%>/gallery.do?cmd=write">Gallery write</a></li>
+						<li><a class="dropdown-item" href="#">A third link</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<%if(session.getAttribute("user_id")==null||session.getAttribute("user_id").equals("")) {%>
+			<ul class="navbar-nav justify-content-end">
+				<li class="nav-item">
+				<a class="nav-link" href="<%=CONTEXT%>/member.do?cmd=logon">로그인</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="<%=CONTEXT%>/member.do?cmd=member_write">회원가입</a>
+				</li>
+			</ul>
+		<%} else {%>
+			<ul class="navbar-nav justify-content-end">
+				<li class="nav-item">
+				<a class="nav-link" href="#none"><%=session.getAttribute("user_name") %></a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="#none" onclick="goLogout()">로그아웃</a>
+				</li>
+			</ul>
+		<%} %>
+	</div>
+</nav>
+<script type="text/javascript">
+function goLogout() {
+	let xhttp = new XMLHttpRequest();
+	let url = "/mvc1/member.do?cmd=logout";
+	
+	xhttp.onload=function(){
+		console.log(this.responseText);
+		let data = JSON.parse(this.responseText);
+		alert("로그아웃 되었습니다.");
+		location.href="/mvc1";
+	}
+	
+	xhttp.open("GET", url, true);
+	xhttp.send();
+}
+</script>

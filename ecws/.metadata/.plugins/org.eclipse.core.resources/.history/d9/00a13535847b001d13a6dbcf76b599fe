@@ -1,0 +1,34 @@
+package com.kwak.dec141uc.main;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
+//데이터 준 사람: student.csv는 utf-8로 인코딩해서 저장했다
+
+public class FRMain2 {
+	public static void main(String[] args) {
+		try {			
+			BufferedReader br = null;
+			String info;
+			try {
+				FileInputStream fis = new FileInputStream("C:/kwak/1214/student.csv");
+				InputStreamReader isr = new InputStreamReader(fis, "utf-8");
+				br = new BufferedReader(isr);
+				info = br.readLine();
+				
+				while (info!=null) {
+					String[] sAr = info.split(",");
+					for (int i = 0; i < sAr.length; i++) {
+						System.out.println(sAr[i]);
+						break;
+					}
+				}
+			} catch (Exception e) {
+			} 	
+				
+		} catch (Exception e) {
+
+		}
+	}
+}

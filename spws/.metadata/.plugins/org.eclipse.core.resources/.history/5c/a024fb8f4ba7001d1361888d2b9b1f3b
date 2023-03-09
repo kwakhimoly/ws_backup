@@ -1,0 +1,80 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!-- 메뉴 -->
+<meta charset="UTF-8">
+<!-- 한글 깨짐 방지 -->
+<%
+// 공통변수 CONTEXT 만들어 놓고 갖다 쓰기
+String CONTEXT = request.getContextPath();
+%>
+
+
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: lavender">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="<%=CONTEXT%>"> <img
+			src="data:image/png;base64,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" alt="Avatar Logo"
+			style="width: 40px;" class="rounded-pill">
+		</a>
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+			data-bs-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					href="<%=CONTEXT%>/guestbook/list?pg=0">List</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="<%=CONTEXT%>/guestbook/write">Write</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="<%=CONTEXT%>/member/write">Sign up</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" role="button"
+					data-bs-toggle="dropdown">Gallery</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="<%=CONTEXT%>/gallery/list">Gallery list</a></li>
+						<li><a class="dropdown-item" href="<%=CONTEXT%>/gallery/write">Gallery write</a></li>
+						<li><a class="dropdown-item" href="#">A third link</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<%if(session.getAttribute("user_id")==null||session.getAttribute("user_id").equals("")) {%>
+			<ul class="navbar-nav justify-content-end">
+				<li class="nav-item">
+				<a class="nav-link" href="<%=CONTEXT%>/member/login">로그인</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="<%=CONTEXT%>/member/write">회원가입</a>
+				</li>
+			</ul>
+		<%} else {%>
+			<ul class="navbar-nav justify-content-end">
+				<li class="nav-item">
+				<a class="nav-link" href="#none"><%=session.getAttribute("user_name") %></a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="#none" onclick="goLogout()">로그아웃</a>
+				</li>
+			</ul>
+		<%} %>
+	</div>
+</nav>
+<script type="text/javascript">
+function goLogout() {
+	$.ajax({
+		url:"<%=request.getContextPath()%>/member/logout",
+		method:"POST",
+		dataType:"JSON"
+	})
+	.done(function (response){
+		alert(response.message);
+		if(response.result=="success"){
+			location.href="<%=request.getContextPath()%>/";
+		}
+	})
+	.fail((response, status, error)=>{
+		console.log(error);
+	});
+}
+
+</script>

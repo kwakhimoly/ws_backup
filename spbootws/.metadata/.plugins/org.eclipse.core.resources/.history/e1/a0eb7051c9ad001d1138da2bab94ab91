@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Guestbook">
+	<!-- namespace는 쿼리들 간에 아이디 식별에 사용함. 그치만 현재 거의 사용 안함. -->
+	<!-- 
+	쿼리를 이 파일에 저장한다. 태그는 select, insert, update, delete가 있다. 
+	id는 쿼리를 식별하기 위한 고유값인데 프로젝트를 통틀어 하나만 있어야 한다.
+	다른 쿼리 xml 파일에 이 아이디가 있으면 안된다.
+	
+	paramType="클래스명", 파라미터로 전달될 클래스명을 기술한다. 여기에 기술한 파라미터로 값을 전달해야 한다.
+	mybatis-config.xml에 기술한 typealias에서 지정한 클래스명을 사용하면 된다. 본래는 패키지명을 포함한 클래스명을 써야 한다.
+	com.kwak.mycompany.guestbook.Guestbook을 다 기술해야 하지만 보통은 typealias를 지정하고 거기서 지정한 값만을 사용한다.
+	
+	resultType="클래스명", 결과를 받아가고자 하는 클래스명을 기술한다. 반환 데이터를 resultType에서 지정한 클래스로 객체를 만들고
+	객체에 setter를 호출해 값을 넣은 다음 ArrayList 객체에 담아서 보낸다.
+	만일 DB테이블의 필드명과 클래스 변수명이 다를 경우에는 둘을 연결하기 위한 map이라는 것을 만들어서 전달한다. 
+	그때는 paramMap이나 resultMap을 xml로 만들어서 전달해야 한다. 
+	  -->
+	  
+	<select id="Guestbook_getList" parameterType="GuestbookDto" resultType="GuestbookDto">
+	select a.seq, a.title, a.writer, a.user_name, a.content, to_char(wdate,'yyyy-mm-dd') wdate,	a.hit
+	from (
+		select a.seq,
+				a.title,
+				a.writer,
+				b.user_name,
+				a.content,
+				a.wdate,
+				a.hit,
+				row_number() over(order by seq desc) num,
+				ceil(row_number() over(order by seq desc)/#{pgSize})-1 pg
+		from tb_guestbook A
+		left outer join tb_member B on a.writer=b.user_id
+		<if test="searchKey!=null and searchKeyword!=null">
+			<if test='searchGbn.equals("1")'>
+			where title like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test='searchGbn.equals("2")'>
+			where content like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test='searchGbn.equals("3")'>
+			where title like '%'||#{searchKeyword}||'%' or content like '%'||#{searchKeyword}||'%'
+			</if>
+		</if>
+		) A where a.pg=#{pg}
+	<!-- #{pg} : pg 변수가 존재해야 파라미터로 받아올 수 있음 -->
+		
+	</select>
+	
+	<select id="Guestbook_getTotalCnt" parameterType="GuestbookDto" resultType="Integer">
+	select count(*) from tb_guestbook
+	<if test="searchKey!=null and searchKeyword!=null">
+			<if test='searchGbn.equals("1")'>
+			where title like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test='searchGbn.equals("2")'>
+			where content like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test='searchGbn.equals("3")'>
+			where title like '%'||#{searchKeyword}||'%' or content like '%'||#{searchKeyword}||'%'
+			</if>
+		</if>
+	</select>
+	
+	<select id="Guestbook_getView" parameterType="GuestbookDto" resultType="GuestbookDto">
+		select a.seq,
+			a.title,
+			a.writer,
+			b.user_name,
+			a.content,
+			a.wdate,
+			a.hit
+		from tb_guestbook A left outer join tb_member B on a.writer=b.user_id
+		where seq=#{seq}
+	</select>
+	
+	<!-- 선행 쿼리, 후행 쿼리 : 쿼리를 여러개 묶어서 한 번에 처리, myBatis에서 사용. -->
+	<!-- nvl(a,b): a값이 null일 경우 0 return, 아니면 a 값 리턴
+	max(a): a의 최댓값 -->
+	<insert id="Guestbook_insert" parameterType="GuestbookDto">
+		<selectKey resultType="String" keyProperty="seq" order="BEFORE">
+			select nvl(max(seq),0)+1 as seq from tb_guestbook
+		</selectKey>
+	insert into tb_guestbook(seq, title, writer, content, wdate, hit)
+		values (#{seq}, #{title}, #{writer}, #{content}, sysdate, 0)
+	</insert>
+	
+	
+</mapper>

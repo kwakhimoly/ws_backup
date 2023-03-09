@@ -1,0 +1,16 @@
+package com.kosa.myapp.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.kosa.myapp.domain.MemberDto;
+//	Long : primary key 데이터 타입
+public interface MemberDao extends JpaRepository<MemberDto, Long> {
+
+	List<MemberDto> findByUser_idOrderByMember_idDesc(String member_id);
+	
+	@Query("select s from MemberDto s where s.user_id like %:user_id%")
+	List<MemberDto> searchByUserId(String user_id);
+}

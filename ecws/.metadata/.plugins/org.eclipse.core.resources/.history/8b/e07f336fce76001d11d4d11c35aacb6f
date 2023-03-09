@@ -1,0 +1,30 @@
+import java.util.Random;
+
+public class Enemy {
+	
+	static int randE = pickEne();
+	String[] i = {"가위",	"바위", "보"};
+
+
+	public Enemy() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static int pickEne() {
+		Random r = new Random();
+		randE = r.nextInt(3) + 1;
+		return randE;
+	}
+	
+	public void tellPick() {
+	
+		if(randE == 1) {
+			System.out.println(i[0]);
+		} else if (randE ==2) {
+			System.out.println(i[1]);
+		} else {
+			System.out.println(i[2]);
+		}
+	}
+
+}

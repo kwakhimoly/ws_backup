@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member">
+	<insert id="Member_insert" parameterType="MemberDto">
+	<selectKey resultType="String" keyProperty="member_id" order="BEFORE">
+		select nvl(max(member_id), 0)+1 as member_id
+		from tb_member
+	</selectKey>
+	insert into tb_member (
+		member_id,
+		user_id,
+		user_name,
+		password,
+		phone,
+		email
+	) values(
+		#{member_id},
+		#{user_id},
+		#{user_name},
+		#{password},
+		#{phone},
+		#{email}
+	)
+	</insert>
+	
+	<!-- user_id 중복체크하기 -->
+	<select id="Member_idcheck" parameterType="MemberDto" resultType="Integer">
+		select count(*) from tb_member where user_id=#{user_id}
+	</select>
+	
+	<!-- log in : 아이디와 패스워드 가져가서 정보 가져오기 -->
+	<select id="Member_login" parameterType="MemberDto" resultType="MemberDto">
+		select * from tb_member where user_id=#{user_id}
+	</select>
+	
+	<!-- findid : 아이디 찾기 -->
+	<select id="Member_findid" parameterType="MemberDto" resultType="MemberDto">
+		select * from tb_member where email=#{email} and user_name=#{user_name}
+	</select>
+	
+	<!-- findpassword : 비밀번호 찾기 -->
+	<select id="Member_findpw" parameterType="MemberDto" resultType="MemberDto">
+		select * from tb_member where email=#{email} and user_name=#{user_name} and user_id=#{user_id}
+	</select>
+	
+	
+	<select id="Member_getlist" parameterType="MemberDto" resultType="MemberDto">
+	select a.*	
+		from (select 
+				a.member_id, 
+				a.user_id, 
+				a.user_name, 
+				a.password, 
+				a.phone, 
+				a.email, 
+				row_number() over(order by member_id desc) as num, 
+				ceil(row_number() over(order by member_id desc)/5)-1 as pg 
+			from tb_member A) A where a.pg=#{pg}
+	</select>
+	
+	<select id="Member_totalcnt" parameterType="MemberDto" resultType="Integer">
+		select count(*) from tb_member
+	</select>
+</mapper>
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+package com.kosa.myapp;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.kosa.myapp.board.BoardDto;
+
+//	스프링부트에서 jsp 사용하지 말고 mustache 쓰라고 했음
+//	템플릿, 템플릿엔진
+//	html 파일을 src/main/resources/template 폴더 아래에 둔다.
+@Controller
+public class TestTemplateController {
+	@GetMapping("/template1")
+	public String template1(Model model) {
+		model.addAttribute("msg", "스프링부트 템플릿 엔진");
+		model.addAttribute("name", "홍길동");
+		model.addAttribute("age", 32);
+		
+		List<String> sList = new ArrayList<>();
+		sList.add("장미");
+		sList.add("튤립");
+		sList.add("수선화");
+		sList.add("동백");
+		sList.add("무궁화");
+		sList.add("해바라기");
+		sList.add("라일락");
+		
+		model.addAttribute("sList",sList);
+		
+		List<BoardDto> boardList = new ArrayList<>();
+		boardList.add(new BoardDto("0", "test", "tester", "testing", "testfile", "testimage"));
+		boardList.add(new BoardDto("1", "test1", "tester1", "testing1", "testfile1", "testimage1"));
+		boardList.add(new BoardDto("2", "test2", "tester2", "testing2", "testfile2", "testimage2"));
+		boardList.add(new BoardDto("3", "test3", "tester3", "testing3", "testfile3", "testimage3"));
+		boardList.add(new BoardDto("4", "test4", "tester4", "testing4", "testfile4", "testimage4"));
+		
+		model.addAttribute("boardList", boardList);
+		
+		return "template1";
+//		template1.html 찾아감
+	}
+}

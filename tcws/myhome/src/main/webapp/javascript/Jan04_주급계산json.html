@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>주급계산 json</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	let paymentList = [
+		{name: '홍길동', workhour: 35, pay: 10000},
+		{name: '김길동', workhour: 20, pay: 9000},
+		{name: '이길동', workhour: 14, pay: 11000},
+		{name: '박길동', workhour: 38, pay: 9100},
+		{name: '윤길동', workhour: 30, pay: 9300},
+	];
+
+	for(payment of paymentList){
+		payment.basic = payment.workhour * payment.pay;
+		if(payment.workhour>=20){
+			payment.extra = (payment.workhour-20)*(payment.pay*0.5);
+		} else{
+			payment.extra = 0;
+		}
+		payment.total = payment.basic+payment.extra;
+	}
+	paymentList.forEach((payment)=>{
+		console.log(payment.name, payment.workhour, payment.pay, payment.basic, payment.extra, payment.total);
+	})
+</script>
+</html>

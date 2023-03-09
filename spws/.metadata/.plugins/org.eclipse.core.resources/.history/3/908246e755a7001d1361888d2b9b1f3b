@@ -1,0 +1,5 @@
+package com.kosa.myapp3.common;
+
+public class CommonConst {
+	public final static String PATH = "C:\\kwak\\spws\\myapp3\\src\\main\\webapp\\upload\\board";
+}

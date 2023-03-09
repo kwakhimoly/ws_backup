@@ -1,0 +1,17 @@
+import java.util.Random;
+
+public class Enemy {
+	Random r = new Random();
+	int randCom = r.nextInt(3)+1;
+	String[] rule = {"가위", "바위", "보"};
+			
+			
+	public Enemy() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int pickCom() {
+		return randCom;
+	}
+	
+}

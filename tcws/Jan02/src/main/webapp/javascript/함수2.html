@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>함수연습2</h1>
+	<button type="button" onclick="alert(sigma(100))">함수호출</button>
+</body>
+<script type="text/javascript">
+function sigma(limit=10){
+	if(limit<1){
+		return 0;
+	} else{
+	sum = 0;
+	for (var i = 1; i <= limit; i++) {
+		sum+=i;
+	}
+	console.log(sum);
+	return sum;
+	}
+}
+sigma(0);
+sigma();
+sigma(100);
+</script>
+</html>

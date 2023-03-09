@@ -1,0 +1,66 @@
+package com.kwak.dec141uc.main;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class FWMain2 {
+//	학생 정보
+//		이름:
+//		생년월일(YYYYMMDD):
+//		국어:
+//		영어:
+//		수학:
+//	=> student.csv에 저장
+	
+	public static void main(String[] args) {
+		Scanner k = new Scanner(System.in);
+		
+		System.out.print("이름: ");
+		String name = k.next();
+		System.out.print("생년월일(YYYYMMDD): ");
+		String birth = null;
+		Date bInfo = null;
+		String birthInfo = null;
+		try {
+			birth = k.next();
+			SimpleDateFormat info = new SimpleDateFormat("yyyyMMdd");
+			bInfo = info.parse(birth);
+			birthInfo = info.format(bInfo);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		System.out.print("국어: ");
+		int korean = k.nextInt();
+		System.out.print("영어: ");
+		int english = k.nextInt();
+		System.out.print("수학: ");
+		int math = k.nextInt();
+		
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		try {
+			fw = new FileWriter("C:/kwak/1214/student.csv", false);
+			bw = new BufferedWriter(fw);
+			bw.write(name);
+			bw.write(birthInfo);
+			bw.write(korean);
+			bw.write(english);
+			bw.write(math);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			k.close();
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- 스프링 관련 설정 파일들. DB만 root-context.xml에서 담당한다. -->
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model 
+
+	servlet board.do?cmd=list
+	controller == view하고 model을 연결시킨다
+	service == 모델단
+	dao == 모델단
+	
+	service는 한 화면에서 여러개의 테이블에 데이터를 한 꺼번에 넣거나 단순히 디비에 데이터 읽고 쓰기 말고 복잡한 작업이 필요한 경우에
+	dao는 테이블 하나 당, 그리고 단순히 데이터 읽고 쓰기 담당
+	controller는 복잡한 업무는 하면 안 됨. => 서비스한테 작업을 넘기면 서비스가 dao를 통해 데이터 읽고 쓰기를 한다.
+	
+	예) 사장(컨트롤러)===노동자(dao) : 일의 규모가 작을 때는 괜찮음
+	일이 점점 커지면 =>
+	사장(컨트롤러)===중간관리자(서비스)===노동자1(dao 1)....n(dao n)
+	
+	스프링: DI(Dependency Injection) 의존성 주입
+	
+	예)  목욕탕: 손님이 목욕하러 오면 그 때서야 옷 보관함을 만들기 -> 그 손님 나가면 옷 보관함 파괴 (이 과정을 반복)
+		=> 이클립스에서 했던 mvc 구조
+		
+		보관함을 미리 많이 만들어놓고 옷 보관함별로 번호표를 만들어서 번호표를 손님에게 배부
+		=> 프로그램도 이렇게 만들자: 컨트롤러, 서비스, dao 미리 만들어 놓기 -> 사용 요청을 하면 참조를 전달, 그리고 반납하고 나감
+		
+	스프링이 하는 주 역할은 객체를 미리 만들어서 관리하는 역할
+			우리가 만들어서 스프링한테 주는 게 아니라 스프링이 객체를 만들어서 우리한테 준다(DI, 제어의 역행)
+		=> xml 파일에 객체 생성해서 연결해줄 것을 지정했었음 -> 자바 1.5 이전까지 (오로지 xml로만)
+		=> 자바 1.5가 만들어지면서 제네릭(generic), 어노테이션(annotation)이 추가됨
+			
+			@Controller
+			@Service
+			@Repository (dao)
+			annotation-driven : 프로젝트를 다 뒤져가면서 위의 세개의 어노테이션 써있는거 객체를 만들어서 보관하라 
+		context: component-scan base-pacakge-"com.kosa.myapp"
+			com.kosa.myapp 보다 아래에 있는 폴더만 적용 대상
+	 -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+<!-- 
+	CSS나 이미, 자바스크립트 url을 외부로 내보내기
+ -->
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="com.kosa.myapp" />
+	
+	
+	
+</beans:beans>

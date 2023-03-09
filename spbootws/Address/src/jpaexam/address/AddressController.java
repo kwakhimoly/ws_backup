@@ -1,0 +1,8 @@
+package jpaexam.address;
+
+public class AddressController {
+	public static void main(String[] args) {
+		AddressManager mng = new AddressManager();
+		mng.start();
+	}
+}

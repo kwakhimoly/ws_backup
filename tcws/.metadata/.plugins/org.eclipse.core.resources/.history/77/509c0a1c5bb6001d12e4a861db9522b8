@@ -1,0 +1,23 @@
+package 이터레이터;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class 이터레이터 {
+	public static void main(String[] args) {
+		List<String> list = new ArrayList<>();
+		list.add("사과");
+		list.add("수박");
+		list.add("배");
+		list.add("포도");
+		list.add("자몽");
+		list.add("바나나");
+
+		Iterator<String> it = list.iterator();
+		while (it.hasNext()) { // 다음 요소가 있으면 true
+			System.out.println(it.next());
+//		next 함수: 현재 요소를 반환하고 다음 요소로 이동
+		}
+	}
+}

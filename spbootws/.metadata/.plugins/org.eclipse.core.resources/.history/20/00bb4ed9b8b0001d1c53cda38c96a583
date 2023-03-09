@@ -1,0 +1,5 @@
+package com.kosa.myapp.board.repository;
+
+public class BoardDaoRepository {
+
+}

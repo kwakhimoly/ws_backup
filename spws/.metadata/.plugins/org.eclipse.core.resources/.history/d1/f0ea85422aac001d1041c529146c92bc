@@ -1,0 +1,5 @@
+package com.kosa.myapp3.common;
+
+public class LoginInterceptor {
+
+}

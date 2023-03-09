@@ -1,0 +1,5 @@
+COMMENT=\#ff80c0 | null | false | false | false | false
+OBJECT_KEY=\#ff8000 | null | false | false | false | false
+VALUE_BOOLEAN=\#408080 | null | false | false | false | false
+VALUE_STRING=\#0080ff | null | false | true | false | false
+eclipse.preferences.version=1

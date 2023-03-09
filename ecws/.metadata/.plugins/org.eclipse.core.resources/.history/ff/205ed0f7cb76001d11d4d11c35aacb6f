@@ -1,0 +1,7 @@
+
+public class RSPMain {
+	public static void main(String[] args) {
+	Computer com = new Computer();
+	com.printCom();
+	}
+}

@@ -1,0 +1,60 @@
+package jpaeduexam.test;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
+import jpaeduexam.dto.ScoreDto;
+
+public class ScoreTest {
+
+	public static void main(String[] args) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("emptest");
+		
+//		factory : 공장 (객체를 생성해내는 별도의 클래스)
+		
+		EntityManager em = factory.createEntityManager();
+//		insert
+		ScoreDto dto = new ScoreDto();
+		dto.setName("홍길동");
+		dto.setKor(100);
+		dto.setEng(90);
+		dto.setMat(90);
+		dto.setWdate(LocalDateTime.now());
+		
+//		em.getTransaction().begin();
+//		em.persist(dto);
+//		em.getTransaction().commit();
+//		insert 끝
+		
+//		데이터 가져오기
+//		TypedQuery : 테이블이 아니라 클래스에서 데이터를 가져온다.
+//		a : 어떤 글자든 상관없지만 써줘야 함(에일리어싱?)
+		TypedQuery<ScoreDto> q = em.createQuery("select a from ScoreDto a", ScoreDto.class);
+		List<ScoreDto> list = q.getResultList();
+		
+//		javascript의 람다(화살표 함수)와 유사
+//		java는 원래 있던 list 객체 -> stream 으로 전환 후 사용
+//		forEach : 매개변스 하나이고 반환값이 없는 람다 함수를 전달해야 한다. 
+		list.stream().forEach(e->{
+			System.out.println(String.format("%s %d %d %d", e.getName(), e.getKor(), e.getEng(), e.getMat()));
+		});
+		
+		System.out.println("번호로 검색하기");
+		q.setParameter("seq", 1);
+		q = em.createQuery("select a from ScoreDto a where a.seq=:seq", ScoreDto.class);
+		list.stream().forEach(e->{
+			System.out.println(String.format("%s %d %d %d", e.getName(), e.getKor(), e.getEng(), e.getMat()));
+		});
+		
+		
+		em.close();
+		factory.close();
+	}
+
+}
+ 

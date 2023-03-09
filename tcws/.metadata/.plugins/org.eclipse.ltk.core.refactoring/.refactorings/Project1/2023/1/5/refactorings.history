@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;prdString&apos; in &apos;com.kwak.jan31.main.ProductManager.addInfo(...)&apos; to &apos;prdName&apos;&#x0D;&#x0A;- Original project: &apos;Project1&apos;&#x0D;&#x0A;- Original element: &apos;com.kwak.jan31.main.ProductManager.addInfo(int, String, int, String, String).prdString&apos;&#x0D;&#x0A;- Renamed element: &apos;prdString&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;prdString&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.kwak.jan31.main{ProductManager.java[ProductManager~addInfo~I~QString;~I~QString;~QString;@prdString!998!1013!1005!1013!QString;!0!true" name="prdName" references="true" stamp="1675154250920" version="1.0"/>
+</session>

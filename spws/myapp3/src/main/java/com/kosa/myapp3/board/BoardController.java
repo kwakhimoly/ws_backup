@@ -1,0 +1,242 @@
+package com.kosa.myapp3.board;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import com.kosa.myapp3.comment.mine.*;
+import com.kosa.myapp3.common.CommonConst;
+import com.kosa.myapp3.common.FileUploadUtil;
+
+@Controller
+public class BoardController {
+	@Resource(name = "boardService")
+	BoardSerivce service;
+	
+	@Resource(name = "commentService")
+	CommentService cService;
+	
+	protected List<String> fileupload(String file1, String file2, String file3, MultipartHttpServletRequest multi) {
+		
+//		dto에 다른 파라미터 값들은 이미 들어와 있음
+//		파일 처리만 하면 된다.
+		
+		MultipartFile mfile1 = multi.getFile(file1); //"file1" -> board_write의 id값
+		MultipartFile mfile2 = multi.getFile(file2);
+		MultipartFile mfile3 = multi.getFile(file3);
+
+		List<MultipartFile> fileList = new ArrayList<MultipartFile>();
+		fileList.add(mfile1);
+		fileList.add(mfile2);
+		fileList.add(mfile3);
+		
+		List<String> filenameList = new ArrayList<String>();
+		String path = CommonConst.UPLOADPATH+"\\board";
+		FileUploadUtil.setFilePath(path);
+		
+		FileUploadUtil.upload(fileList, filenameList);
+		
+		return filenameList;
+	}
+	
+	@RequestMapping(value = "/board/list")
+	public String getList(BoardDto dto, Model model) {
+		
+		List<BoardDto> list = service.getList(dto);
+		model.addAttribute("totalCnt", service.getTotalCnt(dto));
+		model.addAttribute("boardList", list);
+		
+		return "board/board_list";
+	}
+	
+	
+//	board/view?seq=12&board_seq=12 -> 이렇게 두 개씩 list에서 view로 들고 다닐 필요 없이 getter and setter 사용 해도 됨.
+	@RequestMapping(value = "/board/view")
+	public String getView(Model model,BoardDto dto) {
+		
+		CommentDto cDto = new CommentDto();
+		cDto.setBoard_seq(Integer.parseInt(dto.getSeq()));
+		
+		List<CommentDto> list = cService.getList(cDto);
+		
+		model.addAttribute("commentList", list);
+		
+		BoardDto resultDto = service.getView(dto);
+		model.addAttribute("dto",resultDto);
+		return "board/board_view";
+	}
+	
+//	원래 글이 있고 여기에 별도로 코멘트를 달거나 추천을 할 때 그 부분만 별도의 움직임이 있어야 함.
+//	Ajax 말고 방법이 없음.
+
+	@ResponseBody
+	@RequestMapping(value = "/comment/write")
+	public Map<String, Object> comment_write(CommentDto dto, BoardDto bDto){
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+
+//		Map<키 값, 저장할 데이터> 
+//			키 값은 거의 항상 String이지만 저장할 데이터는 String일 수도 다른 객체일 수도 있다.
+//			그래서 어떤 객체든 저장가능하도록 최상의 클래스인 Objct를 지정한다.
+		cService.insert(dto);
+		
+		try {
+			resultMap.put("result", "success");
+			resultMap.put("message", "댓글 등록완료");
+		} catch (Exception e) {
+			e.printStackTrace();
+			resultMap.put("result", "fail");
+		}
+		
+		return resultMap;
+	}
+	
+//	http://localhost:9000/myapp3/comment/list?board_seq=22 : 이런식으로 호출했을 때 데이터가 나오면 성공
+	@ResponseBody
+	@RequestMapping(value = "/comment/list")
+	public Map<String, Object> comment_list(CommentDto cDto){
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("data", cService.getList(cDto));
+		
+		return map;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/board/board_delete")
+	public Map<String, String> board_delete(BoardDto dto) {
+		Map<String, String> resultMap = new HashMap<String, String>();
+		
+		service.delete(dto);
+		resultMap.put("result", "success");
+		resultMap.put("message", "삭제 완료");
+		
+		return resultMap;
+	}
+	
+	
+	@RequestMapping(value = "/board/modify")
+	public String board_modify(BoardDto dto, Model model) {
+//		수정할 글 정보 가져오기
+		BoardDto tempDto = service.getView(dto);
+		model.addAttribute("boardDto", tempDto);
+		return "board/board_write";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/board/modify_save")
+	public Map<String, String> board_modify_save(BoardDto dto, Model model, String []del, String []old_name, MultipartHttpServletRequest multi){
+//		파일 첨부를 하지 않더라도 본래의 파일명은 갖고 이어야 한다.
+//		디비에서 가져온 기본 값을 넣어 놓자.
+		Map<String, String> map = new HashMap<String, String>();
+		dto.setFilename1(old_name[0]);
+		dto.setFilename2(old_name[1]);
+		dto.setFilename3(old_name[2]);
+		
+		String path = CommonConst.UPLOADPATH+"\\board";
+		FileUploadUtil.setFilePath(path);
+
+		List<MultipartFile> fileList = new ArrayList<MultipartFile>();
+
+		MultipartFile mfile1 = multi.getFile("file1"); //"file1" -> board_write의 id값
+		MultipartFile mfile2 = multi.getFile("file2");
+		MultipartFile mfile3 = multi.getFile("file3");
+
+		fileList.add(mfile1);
+		fileList.add(mfile2);
+		fileList.add(mfile3);
+		
+		List<String> filenameList = new ArrayList<String>();
+		
+		FileUploadUtil.upload(fileList, filenameList);
+		
+//		첨부된 파일 처리하기
+		if(del[0].equals("1")) {
+			dto.setFilename1(filenameList.get(0));
+		}
+		if(del[1].equals("2")) {
+			dto.setFilename2(filenameList.get(1));
+		}
+		if(del[2].equals("3")) {
+			dto.setFilename3(filenameList.get(2));
+		}
+		
+		try {
+			service.modify(dto);
+			map.put("result", "success");
+			map.put("message", "수정이 완료되었습니다.");
+		} catch (Exception e) {
+			map.put("result", "fail");
+			e.printStackTrace();
+		}
+		
+		return map;
+	}
+	
+//	view(seq) -> reply(seq)
+	@RequestMapping(value = "/board/reply")
+	public String board_reply(BoardDto dto, Model model) {
+//		부모글 정보 가져오기
+		BoardDto tempDto = service.getView(dto);
+		model.addAttribute("boardDto", tempDto);
+		return "board/board_write";
+	}
+//	ajax 방식
+	@ResponseBody
+	@RequestMapping(value = "/board/reply_save")
+	public Map<String, String> board_reply_save(BoardDto dto, Model model, MultipartHttpServletRequest multi) {
+		Map<String, String> map = new HashMap<String, String>();
+//		트랜잭션 처리를 해놓으면 controller에서 예외처리를 해줘야 한다. 
+//		service에서 예외처리를 하면 rollback이나 commit이 안 된다.
+		
+		List<String> filenameList = fileupload("file1", "file2", "file3", multi);
+		dto.setFilename1(filenameList.get(0));
+		dto.setFilename2(filenameList.get(1));
+		dto.setFilename3(filenameList.get(2));
+				
+		try {
+			service.reply(dto);
+			map.put("result", "success");
+			map.put("message", "답글이 등록되었습니다.");
+		} catch (Exception e) {
+			map.put("result", "fail");
+			e.printStackTrace();
+		}
+		
+		return map;
+	}
+	
+	@RequestMapping(value = "/board/write")
+	public String board_write(BoardDto dto, Model model) {
+		BoardDto tempDto = new BoardDto();
+		model.addAttribute("boardDto", tempDto);
+		return "board/board_write";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/board/save")
+	public Map<String, String> board_save(BoardDto dto, MultipartHttpServletRequest multi){
+		Map<String, String> resultMap = new HashMap<String, String>();
+
+		List<String> filenameList = fileupload("file1", "file2", "file3", multi);
+		
+		dto.setFilename1(filenameList.get(0));
+		dto.setFilename2(filenameList.get(1));
+		dto.setFilename3(filenameList.get(2));
+		
+		service.insert(dto);
+		resultMap.put("result", "success");
+		resultMap.put("message", "글이 등록되었습니다.");
+		
+		return resultMap;
+	}
+}

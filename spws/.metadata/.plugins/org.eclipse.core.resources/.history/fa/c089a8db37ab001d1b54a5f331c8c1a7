@@ -1,0 +1,24 @@
+package com.kosa.myapp3.comment.teacher;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+@Service("commentService")
+public class CommenrServiceImpl implements CommentService {
+	@Resource(name = "commentDao")
+	CommentDao dao;
+
+	@Override
+	public List<CommentDto> getList(CommentDto dto) {
+		return dao.getList(dto);
+	}
+
+	@Override
+	public void insert(CommentDto dto) {
+		dao.insert(dto);
+	}
+
+}

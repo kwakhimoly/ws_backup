@@ -1,0 +1,38 @@
+package jpaedu2;
+
+import java.sql.Date;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
+public class MainTest {
+	public static void main(String[] args) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("emptest");
+		EntityManager em = factory.createEntityManager();
+		
+		EmpDto dto = new EmpDto();
+		dto.setEmpno(8000);
+		dto.setEname("홍길동");
+		dto.setHiredate(Date.valueOf("2023-02-21"));
+		dto.setDept(new DeptDto(10));
+		dto.setJob("개발자");
+		dto.setSal(8000L);
+		dto.setComm(200);
+		
+		em.getTransaction().begin();
+		em.persist(dto); //insert 명령어
+		em.getTransaction().commit();
+		
+		TypedQuery<EmpDto> q = em.createQuery("select a from EmpDto a", EmpDto.class);
+		List<EmpDto> list = q.getResultList();
+		list.stream().forEach(e->{
+			System.out.println("ename: "+e.getEname()+", deptno: "+e.getDept().deptno+", dname: "+e.getDept().dname);
+		});
+		
+		em.close();
+		factory.close();
+	}
+}

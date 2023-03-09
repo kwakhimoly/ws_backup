@@ -1,0 +1,21 @@
+package com.kosa.myapp3.comment;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public class CommentController {
+	@Resource(name = "commentService")
+	CommentService service;
+	
+	@RequestMapping(value = "board/comment")
+	public String getList(CommentDto dto, Model model) {
+		List<CommentDto> list = service.getList(dto);
+		model.addAttribute("commentList", list);
+		
+		return "board/board_list";
+	}
+}

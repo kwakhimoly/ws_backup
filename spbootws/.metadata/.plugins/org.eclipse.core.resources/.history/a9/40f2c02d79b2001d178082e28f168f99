@@ -1,0 +1,68 @@
+package com.kosa.myapp.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.kosa.myapp.domain.MemberDto;
+import com.kosa.myapp.repository.MemberRepository;
+
+@Service
+public class MemberService {
+	@Autowired
+	MemberRepository dao;
+	
+	public List<MemberDto> getList(MemberDto dto, Pageable pageable)
+	{
+//		Pageable : springframework.data.domain
+		return dao.findAll(pageable).getContent();
+//		페이징 정보 추가했을때 
+	}
+	
+	public long getTotalCnt(MemberDto dto)
+	{
+		return dao.count();
+	}
+	
+	public HashMap<String, Object> idCheck(String user_id) {
+		int result = dao.idCheck(user_id);
+		HashMap<String, Object> map = new HashMap<>();
+		
+		if(result==0) {
+			map.put("result", "success");
+			map.put("msg", "아이디 사용 가능");
+		} else {
+			map.put("result", "fail");
+			map.put("msg", "아이디 사용 불가");
+		}
+		
+		return map;
+	}
+	
+	public void insert(MemberDto dto)
+	{
+		dao.save(dto);
+	}
+	
+	public void update(MemberDto dto)
+	{
+		dao.save(dto);
+	}
+	
+	public void delete(MemberDto dto)
+	{
+		dao.delete(dto);
+	}
+	
+	
+	
+}
+
+
+
+
+
+

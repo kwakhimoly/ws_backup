@@ -1,0 +1,87 @@
+package com.kosa.myapp.board.controller;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.kosa.myapp.board.domain.BoardDto;
+import com.kosa.myapp.board.service.BoardService;
+
+import jakarta.annotation.Resource;
+
+@CrossOrigin("*")
+@RestController
+public class BoardController {
+	@Resource(name = "boardService")
+	BoardService service;
+	
+	@RequestMapping("/board/list/{pg}")
+	public HashMap<String, Object> board_getList(BoardDto dto, @PathVariable("pg")int pg){
+		HashMap<String, Object> map = new HashMap<>();
+		
+		dto.setPg(pg-1);
+		
+		try {
+			map.put("result", "success");
+			map.put("message", "성공");
+			map.put("totalCnt", service.getTotalCnt(dto));
+			List<BoardDto> list = service.getList(dto);
+//			System.out.println(ddd.get(0));
+			map.put("list", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+			map.put("result", "fail");
+			map.put("message", "실패");
+		}
+		
+		return map;
+	}
+	
+	@GetMapping("/board/view/{seq}")
+	public BoardDto board_getView(BoardDto dto, @PathVariable("seq")String seq){
+		HashMap<String, Object> map = new HashMap<>();
+		
+		dto.setSeq(seq);
+		BoardDto resultDto = null;
+		try {
+			map.put("result", "success");
+			map.put("message", "성공");
+
+			resultDto = service.getView(dto);
+			System.out.println(resultDto.toString());
+			
+			map.put("data", resultDto);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			map.put("result", "fail");
+			map.put("message", "실패");
+		}
+		
+		return resultDto;
+	}
+	
+//	파일 전송 시 못 받음(파일 처리를 안 해줬음)
+	@RequestMapping("/board/insert")
+	public HashMap<String, Object> board_write(BoardDto dto){
+		
+		
+		HashMap<String, Object> map = new HashMap<>();
+		try {
+			service.insert(dto);
+			map.put("result", "success");
+			map.put("message", "성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+			map.put("result", "fail");
+			map.put("message", "실패");
+		}
+		
+		return map;
+	}
+}

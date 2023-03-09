@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.kwak.dec123oop.information.Coffe&apos; to &apos;Coffee&apos;&#x0D;&#x0A;- Original project: &apos;Dec12_3_OOP_encapsulation&apos;&#x0D;&#x0A;- Original element: &apos;com.kwak.dec123oop.information.Coffe&apos;&#x0D;&#x0A;- Renamed element: &apos;com.kwak.dec123oop.information.Coffee&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Coffe&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.kwak.dec123oop.information{Coffe.java[Coffe" matchStrategy="1" name="Coffee" qualified="false" references="true" similarDeclarations="false" stamp="1670819060750" textual="false" version="1.0"/>
+</session>

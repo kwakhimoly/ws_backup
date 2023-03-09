@@ -1,0 +1,21 @@
+eclipse.preferences.version=1
+fontPropagated=true
+java_keyword=255,128,0
+java_keyword_return=255,128,0
+java_multi_line_comment=255,128,192
+java_single_line_comment=255,128,192
+java_string=0,128,255
+org.eclipse.jface.textfont=1|Fantasque Sans Mono|12.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Fantasque Sans Mono;
+org.eclipse.wst.jsdt.ui.editor.tab.width=
+org.eclipse.wst.jsdt.ui.formatterprofiles.version=11
+org.eclipse.wst.jsdt.ui.javadoclocations.migrated=true
+org.eclipse.wst.jsdt.ui.text.code_templates_migrated=true
+org.eclipse.wst.jsdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.wst.jsdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.wst.jsdt.ui.text.templates_migrated=true
+proposalOrderMigrated=true
+semanticHighlighting.methodDeclarationName.color=96,200,96
+semanticHighlighting.methodDeclarationName.enabled=true
+tabWidthPropagated=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

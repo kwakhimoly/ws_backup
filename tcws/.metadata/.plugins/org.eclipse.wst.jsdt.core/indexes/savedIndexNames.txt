@@ -1,0 +1,17 @@
+INDEX VERSION 1.4+C:\kwak\tcws\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1993084673.index
+2026915807.index
+3898278029.index
+1700534028.index
+3058748552.index
+1763905867.index
+399045123.index
+3000615843.index
+3187660469.index
+801381677.index
+2568845579.index
+2979560664.index
+558849680.index
+244267256.index
+1309921010.index
+3525282575.index

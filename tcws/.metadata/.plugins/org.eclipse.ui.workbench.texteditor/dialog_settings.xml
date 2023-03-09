@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="movie"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="조회수"/>
+			<item value="gallery"/>
+			<item value="search"/>
+			<item value="word"/>
+			<item value="Guestbook"/>
+			<item value="tb_guestbook"/>
+			<item value="GuestbookDto"/>
+			<item value="/&lt;%=CONTEXT%&gt;"/>
+		</list>
+		<list key="replacehistory">
+			<item value="movie"/>
+			<item value="Review"/>
+			<item value="tb_gallery"/>
+			<item value="GalleryDto"/>
+			<item value="&lt;%=CONTEXT%&gt;"/>
+			<item value="mvc1"/>
+			<item value="email"/>
+			<item value="td"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="724"/>
+		<item key="DIALOG_Y_ORIGIN" value="396"/>
+	</section>
+</section>

@@ -1,0 +1,36 @@
+package jpaeduexam.test;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import jpaeduexam.dto.ScoreDto;
+
+public class ScoreTest {
+
+	public static void main(String[] args) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("emptest");
+		
+//		factory : 공장 (객체를 생성해내는 별도의 클래스)
+		
+		EntityManager em = factory.createEntityManager();
+		
+		ScoreDto dto = new ScoreDto();
+		dto.setName("홍길동");
+		dto.setKor(100);
+		dto.setEng(90);
+		dto.setMat(90);
+		dto.setWdate(LocalDateTime.now());
+		
+		em.getTransaction().begin();
+		em.persist(dto);
+		em.getTransaction().commit();
+		
+		em.close();
+		factory.close();
+	}
+
+}
+ 

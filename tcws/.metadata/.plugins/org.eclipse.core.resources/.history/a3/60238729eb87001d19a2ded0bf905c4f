@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"> <img
+				src="/Dec30_myhome2/Dec30_myhome2/images/img_avatar1.png" alt="Logo"
+				style="width: 40px;" class="rounded-pill">
+			</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" role="button"
+						data-bs-toggle="dropdown">Dropdown</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#">Link</a></li>
+							<li><a class="dropdown-item" href="#">Another link</a></li>
+							<li><a class="dropdown-item" href="#">A third link</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container mt-3">
+		<h3>Gallery</h3>
+		<p>dogydog</p>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="thumbnail">
+				<a href="/Dec30_myhome2/images/sciencedog.jpg"> <img
+					src="/Dec30_myhome2/images/sciencedog.jpg" alt="sciencedog"
+					style="width: 100%">
+					<div class="caption">
+						<p>Science Dog</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="thumbnail">
+				<a href="/Dec30_myhome2/images/fanxy.jpg"> <img
+					src="/Dec30_myhome2/images/fanxy.jpg" alt="fanxy"
+					style="width: 100%">
+					<div class="caption">
+						<p>Fanxy Dog</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="thumbnail">
+				<a href="/Dec30_myhome2/images/angdog.jpg"> <img
+					src="/Dec30_myhome2/images/angdog.jpg" alt="angdog"
+					style="width: 100%">
+					<div class="caption">
+						<p>Angry Dog</p>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<div class="thumbnail">
+				<a href="/Dec30_myhome2/images/angdog.jpg"> <img
+					src="/Dec30_myhome2/images/angdog.jpg" alt="angdog"
+					style="width: 100%">
+					<div class="caption">
+						<p>Angry Dog</p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container mt-3">
+		<h2>Pagination - Active State</h2>
+		<p>Add class .active to let the user know which page he/she is on:</p>
+		<ul class="pagination">
+			<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item active"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">Next</a></li>
+		</ul>
+	</div>
+
+	<div class="container mt-3" style="text-align: right;">
+		<button type="button" class="btn btn-outline-warning">글쓰기</button>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+<!--  원래 클래스명은 패키지까지 포함하기때문에 너무 길어서 짧은 별명을 만들어서 접근하기 위해 기술한다  -->
+	<typeAliases>
+    	<typeAlias alias="GuestbookDto" type="com.kwak.mycompany.guestbook.GuestbookDto"/>
+    	<typeAlias alias="GalleryDto" type="com.kwak.mycompany.gallery.GalleryDto"/>
+    	<typeAlias alias="ScoreDto" type="com.kwak.mycompany.score.ScoreDto"/>
+    	<typeAlias alias="MemberDto" type="com.kwak.mycompany.member.MemberDto"/>
+    	<typeAlias alias="TestDto" type="com.kwak.mycompany.test.TestDto"/>
+			
+	</typeAliases>
+
+	<mappers>
+	<!-- sql 쿼리를 두는 곳. Guestbook.xml 파일을 만들어야 한다. -->
+	
+	 <mapper resource=	"/com/kwak/mycompany/mapper/Guestbook.xml"/> 
+							<!-- Guestbook.xml 위치 -->
+	  <mapper resource=	"/com/kwak/mycompany/mapper/Score.xml"/>
+	  <mapper resource=	"/com/kwak/mycompany/mapper/Member.xml"/>
+	  <mapper resource=	"/com/kwak/mycompany/mapper/Gallery.xml"/>
+	  <mapper resource=	"/com/kwak/mycompany/mapper/Test.xml"/>
+	
+	</mappers>
+	
+</configuration>

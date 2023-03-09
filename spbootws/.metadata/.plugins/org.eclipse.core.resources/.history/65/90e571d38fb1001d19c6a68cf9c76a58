@@ -1,0 +1,5 @@
+package jpaedu.exam.dao;
+
+public class EmpDao {
+
+}

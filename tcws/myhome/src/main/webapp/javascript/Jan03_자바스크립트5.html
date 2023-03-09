@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+		배경색바꾸기를 <h1>태그로 감싸면 e.target이 h1을 찾아가서 배경 색이 변했다 안 변했다 함.
+		class name 부여해서 묶어서 사용하기 => id로 하면 하나하나 다 해야함 
+	-->
+	<button type="button" style="color: aliceblue; font-size: 24pt;" id="bgc1" class="button">배경색바꾸기</button>
+	<button type="button" style="color: antiquewhite; font-size: 24pt;" id="bgc2" class="button">배경색바꾸기</button>
+	<button type="button" style="color: cornsilk; font-size: 24pt;" id="bgc3" class="button">배경색바꾸기</button>
+	<button type="button" style="color: honeydew; font-size: 24pt;" id="bgc4" class="button">배경색바꾸기</button>
+	<button type="button" style="color: lavenderblush; font-size: 24pt;" id="bgc5" class="button">배경색바꾸기</button>
+</body>
+	<script type="text/javascript">
+		document.getElementsByTagName("body")[0].style.background = "ghostwhite";
+	
+			/* addEventListner에 함수에 이벤트 자체를 매개변수로 전달할 수 있다. */
+	
+			window.onload=()=>{
+				buttons = document.getElementsByClassName("button");
+				for (i = 0; i < buttons.length; i++) {
+					buttons[i].addEventListener("click", (e)=>{
+						//console.log(e);
+						console.log(e.target); //이벤트 발생 객체
+						body = document.getElementsByTagName("body")[0];
+						body.style.background = e.target.style.color;
+					})
+				}
+			}
+	
+	</script>
+</html>

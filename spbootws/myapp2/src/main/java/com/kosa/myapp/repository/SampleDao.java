@@ -1,0 +1,17 @@
+package com.kosa.myapp.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.kosa.myapp.domain.SampleDto;
+
+public interface SampleDao extends JpaRepository<SampleDto, Long> {
+//	insert 등등 자동으로 만들어줌. 대신 select는 직접 만들어야 하는데 함수명 변경 불가.
+	List<SampleDto> findByTestOrderBySeqDesc(String test);
+	
+	@Query("select s from SampleDto s where s.test like %:test%")
+	List<SampleDto> searchByTest(@Param("test")String test);
+}

@@ -1,0 +1,15 @@
+ATMARK_RULE=\#10c02b | null | false | false | false | false
+ATTRIBUTE_DELIM=\#10c02b | null | false | false | false | false
+ATTRIBUTE_NAME=\#10c02b | null | false | false | false | false
+ATTRIBUTE_OPERATOR=\#10c02b | null | false | false | false | false
+ATTRIBUTE_VALUE=\#10c02b | null | false | false | false | false
+CLASS=\#10c02b | null | false | true | false | false
+COMBINATOR=\#10c02b | null | false | false | false | false
+COMMENT=\#ff80c0 | null | false | false | false | false
+ID=\#10c02b | null | false | true | false | false
+MEDIA=\#0080ff | null | false | false | false | false
+PROPERTY_NAME=\#ff8000 | null | false | false | false | false
+PROPERTY_VALUE=\#0080ff | null | false | true | false | false
+PSEUDO=\#10c02b | null | false | true | false | false
+STRING=\#ff8080 | null | false | true | false | false
+eclipse.preferences.version=1

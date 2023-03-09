@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Comment">
+
+<insert id="Comment_insert" parameterType="CommentDto">
+		<selectKey resultType="Integer" keyProperty="seq" order="BEFORE">
+			select nvl(max(seq),0)+1 as seq from tb_comment
+		</selectKey>
+	insert into tb_comment(
+		seq,
+		board_seq,
+		userid,
+		content_comment,
+		regdate
+	)
+	values(
+		#{seq},
+		#{board_seq},
+		#{userid},
+		#{content_comment},
+		sysdate
+	)
+</insert>
+
+<!-- board_seq=#{board_seq}을 했으면 board_seq 파라미터를 넘겨야 함 -->
+
+<select id="Comment_getList" parameterType="CommentDto" resultType="CommentDto">
+	select
+	    a.seq,
+	    a.board_seq,
+	    a.userid,
+	    a.content_comment,
+	    to_char(regdate, 'yyyy-mm-dd') as regdate,
+	    a.delyn
+	from tb_comment A
+	where delyn='N' and board_seq = #{board_seq}
+	order by seq desc
+</select>
+
+</mapper>

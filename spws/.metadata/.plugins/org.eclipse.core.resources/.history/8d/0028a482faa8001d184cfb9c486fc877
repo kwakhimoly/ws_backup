@@ -1,0 +1,48 @@
+package com.kosa.myapp3.comment;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.kosa.myapp3.board.BoardDto;
+import com.kosa.myapp3.board.BoardSerivce;
+
+public class CommentController {
+	@Resource(name = "commentService")
+	CommentService service;
+	
+	@Resource(name = "boardService")
+	BoardSerivce bService;
+	
+	@RequestMapping(value = "board/comment")
+	public String getList(CommentDto dto, Model model) {
+		List<CommentDto> list = service.getList(dto);
+		model.addAttribute("commentList", list);
+		
+		return "board/board_list";
+	}
+	
+	@RequestMapping(value = "/board/write")
+	public Map<String, String> comment_write(CommentDto dto, BoardDto bDto){
+		Map<String, String> resultMap = new HashMap<String, String>();
+		BoardDto parentDto = bService.getView(bDto);
+		dto.setBoard_seq(Integer.parseInt(parentDto.getSeq()));
+		
+		service.insert(dto);
+		
+		try {
+			resultMap.put("result", "success");
+			resultMap.put("message", "댓글 등록완료");
+		} catch (Exception e) {
+			e.printStackTrace();
+			resultMap.put("result", "fail");
+		}
+		
+		return map;
+	}
+}

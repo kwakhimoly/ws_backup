@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Gusetbook">
+
+	<select id="Gusetbook_getTotalCnt" parameterType="GusetbookDto"
+		resultType="Integer">
+		select count(*) from Gusetbook where delyn='N'
+	</select>
+
+	<select id="Gusetbook_getList" parameterType="GusetbookDto"
+		resultType="GusetbookDto">
+		SELECT
+			b.delyn,
+			b.delyn2,
+			b.seq,
+			b.title,
+			b.userid,
+			nvl(filename1,'') as filename1,
+			nvl(filename2,'') as filename2,
+			nvl(filename3,'') as filename3,
+			to_char(regdate, 'yyyy-mm-dd') as regdate,
+			to_char(moddate, 'yyyy-mm-dd') as moddate,
+			b.depth,
+			b.g_level,
+			b.group_id,
+			b.rnum as num,
+			nvl(hit, 0) hit
+		FROM
+			(select
+				a.delyn,
+				a.delyn2,
+				a.seq,
+				a.title,
+				a.userid,
+				a.contents,
+				a.filename1,
+				a.filename2,
+				a.filename3,
+				a.regdate,
+				a.moddate,
+				a.hit,
+				a.depth,
+				a.g_level,
+				a.group_id,
+				row_number() over (order by group_id desc, g_level asc) as rnum,
+				ceil(row_number() over(order by group_id desc, g_level asc)/#{pgSize})-1 as pg
+			from Gusetbook A
+			where delyn='N'
+			) B 
+		WHERE pg=#{pg}
+	</select>
+	
+	<insert id="Gusetbook_insert" parameterType="GusetbookDto">
+		<selectKey resultType="String" keyProperty="seq" order="BEFORE">
+			select nvl(max(seq),0)+1 as seq from Gusetbook
+		</selectKey>
+		
+	INSERT INTO Gusetbook 
+		(seq, 
+		userid, 
+		title, 
+		contents,
+		filename1, 
+		filename2, 
+		filename3, 
+		regdate,
+		moddate, 
+		delyn, 
+		group_id, 
+		depth, 
+		g_level, 
+		hit) 
+	VALUES 
+		(
+		#{seq}, 
+		#{userid}, 
+		#{title},
+		#{contents},
+		#{filename1},
+		#{filename2},
+		#{filename3},
+		sysdate,
+		sysdate,
+		'N',
+		#{seq}, 
+		0, 
+		1, 
+		0
+		)
+		
+	</insert>
+	
+	<!-- 부모글의 group_id, depth(부모글+1), g_level(부모글+1) -->
+	<insert id="Gusetbook_reply" parameterType="GusetbookDto">
+		<selectKey resultType="String" keyProperty="seq" order="BEFORE">
+			select nvl(max(seq),0)+1 as seq from Gusetbook
+		</selectKey>
+		
+	INSERT INTO Gusetbook 
+		(seq, 
+		userid, 
+		title, 
+		contents,
+		filename1, 
+		filename2, 
+		filename3, 
+		regdate,
+		moddate, 
+		delyn, 
+		group_id, 
+		depth, 
+		g_level, 
+		hit) 
+	VALUES 
+		(
+		#{seq}, 
+		#{userid}, 
+		#{title},
+		#{contents},
+		#{filename1},
+		#{filename2},
+		#{filename3},
+		sysdate,
+		sysdate,
+		'N',
+		#{group_id}, 
+		#{depth}, 
+		#{g_level}, 
+		0
+		)
+		
+	</insert>
+	
+	<!-- 자신의 부모글보다 레벨이 높은 글들의 레벨을 하나 더 높이고 내가 그 자리에 들어간다. GusetbookDto 부모글 -->
+	<update id="Gusetbook_reply_level_update" parameterType="GusetbookDto">
+		update Gusetbook set g_level = g_level+1 where group_id=#{group_id} and g_level>#{g_level}
+	</update>
+	
+	<select id="Gusetbook_getView" parameterType="GusetbookDto" resultType="GusetbookDto">
+		select 
+			a.seq,
+			a.title,
+			a.userid,
+			a.contents,
+			nvl(a.filename1, '') filename1,
+			nvl(a.filename2, '') filename2,
+			nvl(a.filename3, '') filename3,
+			to_char(regdate, 'yyyy-mm-dd') as regdate,
+			to_char(moddate, 'yyyy-mm-dd') as moddate,
+			a.hit,
+			a.group_id,
+			a.depth,
+			a.g_level
+		from Gusetbook a where seq = #{seq}
+	</select>
+	<update id="Gusetbook_updateHit" parameterType="GusetbookDto">
+		update Gusetbook set hit=hit+1 where seq=#{seq}
+	</update>
+	
+	<update id="Gusetbook_modify" parameterType="GusetbookDto">
+		update Gusetbook set
+			title = #{title},
+			contents = #{contents},
+			filename1 = #{filename1},
+			filename2 = #{filename2},
+			filename3 = #{filename3},
+			moddate = sysdate
+		where seq = #{seq}
+	</update>
+	
+	<!-- 자식 유무 알아 올 쿼리 
+		 그룹이 같아야 하고, depth+1, g_level+1 한 것이 반드시 있음
+		 count가 0이면 자식이 없음	
+	-->
+	<select id="Gusetbook_getChildCount" parameterType="GusetbookDto" resultType="Integer">
+		select count(*)
+		from Gusetbook
+		where 
+			group_id = #{group_id} and 
+			depth = #{depth}+1 and 
+			g_level=#{g_level}+1
+	</select>
+	
+	<!-- 자식 유무에 따라 다르게 처리 -->
+	
+	<update id="Gusetbook_delete1" parameterType="GusetbookDto">
+		update Gusetbook set
+			delyn = 'Y'
+		where seq = #{seq}
+	</update>
+	
+	<update id="Gusetbook_delete2" parameterType="GusetbookDto">
+		update Gusetbook set delyn2='Y' where seq=#{seq}
+	</update>
+</mapper>

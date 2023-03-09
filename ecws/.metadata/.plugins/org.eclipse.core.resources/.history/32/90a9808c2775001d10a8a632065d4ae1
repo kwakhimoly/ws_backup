@@ -1,0 +1,19 @@
+
+public class PPSMain2 {
+	
+	public static void money5(int 거스름돈) {
+		int 거스름돈;
+		int i = 10;
+		for(int a = 5; a<=10000; int a*10) {
+			System.out.printf("a*10원권: %d개\n", 거스름돈/a*10);
+		}
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+		money5(23090)
+	}
+}

@@ -1,0 +1,7 @@
+package com.kosa.myapp3.mapper;
+
+//	함수명은 xml에서 쓴 그대로 써야 mapper가 xml을 인식할 수 있음
+import com.kosa.myapp3.member.MemberDto;
+public interface MemberMapper {
+	public void Member_insert(MemberDto dto);
+}

@@ -1,0 +1,26 @@
+package com.kosa.myapp3.common;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class DownController {
+	@RequestMapping("/down")
+	public void download(HttpServletRequest req, HttpServletResponse res, String path, String filename) {
+//		path - 모든 파일을 같은 폴더에 업로드하면 관리가 어렵다.
+//			/upload/board , /upload/gallery, /upload/ads ... 이런 식으로 나누어서 업로드를 한다.
+//			path에는 board, gallery, ads 등 /upload 아래 폴더명이 들어간다.
+//		filename : 다운로드할 파일명
+		
+//		서블릿 3.0 잇아부터 가상 폴더의 실제 물리적 구조를 알려주는 함수가 생겼음
+		ServletContext ctx = req.getServletContext();
+		String fullPath = ctx.getRealPath("/upload/"+path);
+		System.out.println(fullPath);
+		System.out.println(filename);
+	}
+//	http://121.0.0.1:9000/down?path=board&filename=test.txt
+}

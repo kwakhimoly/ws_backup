@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.kwak.dec124oop.human.kwak.java&apos; to &apos;Kwak.java&apos;&#x0D;&#x0A;- Original project: &apos;Dec12_4_OOP_singletonPattern&apos;&#x0D;&#x0A;- Original element: &apos;com.kwak.dec124oop.human.kwak.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.kwak.dec124oop.human.Kwak.java&apos;" description="Rename compilation unit &apos;kwak.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.kwak.dec124oop.human{kwak.java" name="Kwak.java" references="false" stamp="1670822349592" version="1.0"/>
+</session>

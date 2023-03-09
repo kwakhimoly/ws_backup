@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Person {
+
+	static int personPick = pickPer();
+	String[] i = {"가위","바위","보"};
+
+
+	public Person() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	public static int pickPer() {
+		Scanner k = new Scanner(System.in);
+		int num = k.nextInt();
+		return (num<1 || num>=4) ? pickPer() : num;
+	}
+	
+	public void tellPick() {
+	
+		if(personPick == 1) {
+			System.out.println(i[0]);
+		} else if (personPick ==2) {
+			System.out.println(i[1]);
+		} else {
+			System.out.println(i[2]);
+		}
+	}
+}

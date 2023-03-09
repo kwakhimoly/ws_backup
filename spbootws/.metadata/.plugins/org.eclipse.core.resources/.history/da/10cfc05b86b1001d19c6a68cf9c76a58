@@ -1,0 +1,22 @@
+package jpaeduexam.test;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+public class ScoreTest {
+
+	public static void main(String[] args) {
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("emptest");
+		
+//		factory : 공장 (객체를 생성해내는 별도의 클래스)
+		
+		EntityManager em = factory.createEntityManager();
+		
+		System.out.println("JPA실습");
+		
+		em.close();
+		factory.close();
+	}
+
+}

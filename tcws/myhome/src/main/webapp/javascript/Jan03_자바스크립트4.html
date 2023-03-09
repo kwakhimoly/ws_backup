@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트4</title>
+</head>
+<body>
+	<button type="button" style="color: aliceblue;" id="bgc1">배경색바꾸기</button>
+	<button type="button" style="color: lavender;" id="bgc2">배경색바꾸기</button>
+	<button type="button" style="color: cornsilk;" id="bgc3">배경색바꾸기</button>
+	<button type="button" style="color: honeydew;" id="bgc4">배경색바꾸기</button>
+	<button type="button" style="color: lavenderblush;" id="bgc5">배경색바꾸기</button>
+</body>
+<script type="text/javascript">
+	document.getElementsByTagName("body")[0].style.background = "ghostwhite";
+	
+	let btn1 = document.getElementById("bgc1");
+	let btn2 = document.getElementById("bgc2");
+	let btn3 = document.getElementById("bgc3");
+	let btn4 = document.getElementById("bgc4");
+	let btn5 = document.getElementById("bgc5");
+	let body = document.getElementsByTagName("body")[0];
+	
+	window.onload=()=>{
+		btn1.addEventListener("click", (e)=>{
+			console.log(e.target);
+			body.style.background = btn1.style.color;
+		});
+		btn2.addEventListener("click", (e)=>{
+			body.style.background = btn2.style.color;
+		});
+		btn3.addEventListener("click", (e)=>{
+			body.style.background = btn3.style.color;
+		});
+		btn4.addEventListener("click", (e)=>{
+			body.style.background = btn4.style.color;
+		});
+		btn5.addEventListener("click", (e)=>{
+			body.style.background = btn5.style.color;
+		});
+	} 
+ 	/* let btn1 = document.getElementById("bgc1");
+	let btn2 = document.getElementById("bgc2");
+	let btn3 = document.getElementById("bgc3");
+	let btn4 = document.getElementById("bgc4");
+	let btn5 = document.getElementById("bgc5");
+	let body = document.getElementsByTagName("body")[0];
+	btn1.addEventListener("click", ()=>{
+		css에서는 속성에 -이 가능한데 자바스크립트는 불가능 
+		 -a => A 대문자로. background-color -> backgroundColor 
+		btn1.addEventListener("click", ()=>{
+			body.style.backgroundColor = btn1.style.color;
+		});
+		btn2.addEventListener("click", ()=>{
+			body.style.backgroundColor = btn2.style.color;
+		});
+		btn3.addEventListener("click", ()=>{
+			body.style.backgroundColor = btn3.style.color;
+		});
+		btn4.addEventListener("click", ()=>{
+			body.style.backgroundColor = btn4.style.color;
+		});
+		btn5.addEventListener("click", ()=>{
+			body.style.backgroundColord = btn5.style.color;
+		});
+	} 
+		 
+	}) */
+</script>
+</html>

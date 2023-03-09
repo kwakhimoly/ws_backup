@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+	/* 
+	 prompt 함수 : 데이터 입력 팝업창 생성
+	 취소 버튼 누르면 null이 저장됨
+	 */
+
+	a = prompt("나이를 입력하세요", 22); //22가 기본값으로 출력됨
+
+	if (a == null) {
+		alert("취소되었습니다.");
+	} else {
+		console.log("나이는 " + a + "입니다.");
+	}
+	
+	/* 
+	입력은 보통 input 태그 사용. prompt는 실무에서 사용 안함
+	*/
+</script>
+</html>

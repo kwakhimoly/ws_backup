@@ -1,0 +1,12 @@
+
+public class PPSMain2 {
+
+	public static void main(String[] args) {
+		int 거스름돈 = 73090;
+		
+		for(int 돈=50000; 돈>=0; 돈/=10){
+		int 몇개 = 거스름돈 / 돈;
+		System.out.printf("%d원짜리 %d개\n", 돈, 몇개);
+		}
+	}
+}

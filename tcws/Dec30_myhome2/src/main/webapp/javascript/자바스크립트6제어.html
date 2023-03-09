@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트6 제어</title>
+</head>
+<body>
+
+</body>
+<script>
+/* 
+
+*/
+
+for (var i = 0; i < 10; i++) {
+	console.log(i);
+}
+
+i = 1;
+// while문은 몇 번 수행할 지 모르는 경우 한 번도 수행이 안 될 수 있다.
+while (i<=10) {
+	console.log(i);
+	i=i+1;
+}
+
+for (var i = 0; i < 10; i++) {
+	document.writeln("홍길동"); //ln 붙으면 줄바꿈 아니고 그냥 띄어쓰기만 출력됨
+}
+for (var i = 0; i < 10; i++) {
+	document.write("<br><span style='color : blue;'>홍길동</span>"); //ln 붙으면 줄바꿈 아니고 그냥 띄어쓰기만 출력됨
+}
+</script>
+</html>

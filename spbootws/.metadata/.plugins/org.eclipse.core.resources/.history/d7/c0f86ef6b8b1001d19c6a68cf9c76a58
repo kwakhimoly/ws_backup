@@ -1,0 +1,29 @@
+package jpaexam.address;
+
+public class AddressController {
+	public static void main(String[] args) {
+		AddressManager mng = new AddressManager();
+		
+		int menu = mng.showMenu();
+		
+		if(menu==1) {
+			mng.register();
+		} if(menu==2) {
+			int schkey = mng.search();
+			if(schkey==1) {
+				mng.searchName();
+			} else if(schkey==2) {
+				mng.searchPhone();
+			} else if(schkey==3) {
+				mng.searchEmail();
+			} else if(schkey==4) {
+				mng.printAll();
+			} else {
+				System.out.println("검색 조건을 잘못 입력하셨습니다.");
+				mng.showMenu();
+			}
+		}
+		
+		mng.close();
+	}
+}

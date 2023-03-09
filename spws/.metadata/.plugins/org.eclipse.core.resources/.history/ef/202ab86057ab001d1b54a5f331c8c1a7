@@ -1,0 +1,16 @@
+package com.kosa.myapp3.member;
+
+public class MemberDto {
+	private String member_id = "";
+	private String user_id = "";
+	private String password = "";
+	private String user_name = "";
+	private String email = "";
+	private String phone = "";
+	private String nickname = "";
+	private String zipcode = "";
+	private String address1 = "";
+	private String address2 = "";
+	private String regdate = "";
+
+}

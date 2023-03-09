@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Gallery">
+	  
+	<select id="Gallery_getList" parameterType="GalleryDto" resultType="GalleryDto">
+	select a.seq, a.title, a.writer, a.user_name, a.content, to_char(wdate,'yyyy-mm-dd') wdate,	a.hit, a.image1, a.num, a.pg
+	from (
+		select a.seq,
+				a.title,
+				a.writer,
+				b.user_name,
+				a.content,
+				a.wdate,
+				a.hit,
+				a.image1,
+				row_number() over(order by seq desc) num,
+				ceil(row_number() over(order by seq desc)/#{pgSize})-1 pg
+		from tb_gallery A
+		left outer join tb_member B on a.writer=b.user_id
+		<!-- xml에서 if문 쓸 때는 <if test="조건식">수행문</if> -->
+		<if test="searchKey!=null and searchKeyword!=null">
+			<if test='searchKey.equals("1")'>
+			where title like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test='searchKey.equals("2")'>
+			where content like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test='searchKey.equals("3")'>
+			where title like '%'||#{searchKeyword}||'%' or content like '%'||#{searchKeyword}||'%'
+			</if>
+		</if>
+		) A where a.pg=#{pg}
+	</select>
+	
+	<select id="Gallery_getTotalCnt" parameterType="GalleryDto" resultType="Integer">
+	select count(*) from tb_gallery 
+	<if test="searchKey!=null and searchKeyword!=null">
+			<if test='searchKey.equals("1")'>
+			where title like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test='searchKey.equals("2")'>
+			where content like '%'||#{searchKeyword}||'%'
+			</if>
+			<if test='searchKey.equals("3")'>
+			where title like '%'||#{searchKeyword}||'%' or content like '%'||#{searchKeyword}||'%'
+			</if>
+		</if>
+	</select>
+	
+	<select id="Gallery_getView" parameterType="GalleryDto" resultType="GalleryDto">
+		select a.seq,
+			a.title,
+			a.writer,
+			b.user_name,
+			a.content,
+			a.wdate,
+			a.hit,
+			a.image1
+		from tb_gallery A left outer join tb_member B on a.writer=b.user_id
+		where seq=#{seq}
+	</select>
+	
+
+	<insert id="Gallery_insert" parameterType="GalleryDto">
+		<selectKey resultType="String" keyProperty="seq" order="BEFORE">
+			select nvl(max(seq),0)+1 as seq from tb_gallery
+		</selectKey>
+	insert into tb_gallery(seq, title, writer, content, image1, wdate, hit)
+		values (#{seq}, #{title}, #{writer}, #{content}, #{image1}, sysdate, 0)
+	</insert>
+	
+	
+</mapper>

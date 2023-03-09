@@ -1,0 +1,5 @@
+package com.kosa.myapp.board.domain;
+
+public class BoardDto {
+
+}

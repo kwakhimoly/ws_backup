@@ -1,0 +1,7 @@
+package jpaexam.address;
+
+public class AddressController {
+	public static void main(String[] args) {
+
+	}
+}

@@ -1,0 +1,12 @@
+
+public class RSMain {
+	public static void main(String[] args) {
+		for(int i= 0; i<5; i++) {
+		System.out.println("집 가고 싶다");
+		
+		}
+		for (int j = 3; j < 6; j++) {
+			System.out.println(j);
+		}
+	}
+}

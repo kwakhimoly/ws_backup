@@ -1,0 +1,12 @@
+server.port=9090
+spring.mustache.suffix=.html
+server.servlet.encoding.force=true
+
+#세션 값을 mustatche 엔진에서 표출되도록 설정해야 함
+spring.mustache.servlet.expose-session-attributes=true
+
+#오라클 접속
+spring.datasource.url=jdbc:oracle:thin:@127.0.0.1:1521:XE
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.username=k
+spring.datasource.password=1234

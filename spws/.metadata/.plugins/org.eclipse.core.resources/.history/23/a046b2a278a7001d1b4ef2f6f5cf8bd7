@@ -1,0 +1,41 @@
+package com.kosa.myapp3.board;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+@Service("boardService")
+public class BoardServiceImpl implements BoardSerivce {
+
+	@Resource(name = "boardDao")
+	BoardDao dao;
+	
+	@Override
+	public int getTotalCnt(BoardDto dto) {
+		// TODO Auto-generated method stub
+		return dao.getTotalCnt(dto);
+	}
+
+	@Override
+	public List<BoardDto> getList(BoardDto dto) {
+		// TODO Auto-generated method stub
+		return dao.getList(dto);
+	}
+
+	@Override
+	public void insert(BoardDto dto) {
+		dao.insert(dto);
+	}
+
+	@Override
+	public BoardDto getView(BoardDto dto) {
+		return dao.getView(dto);
+	}
+
+	@Override
+	public void updateHit(BoardDto dto) {
+		dao.updateHit(dto);
+	}
+
+}

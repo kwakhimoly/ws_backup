@@ -1,0 +1,37 @@
+package com.kosa.myapp.guestbook.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.kosa.myapp.guestbook.domain.GuestbookDto;
+import com.kosa.myapp.guestbook.service.GuestbookService;
+
+import jakarta.annotation.Resource;
+
+@RestController
+public class GuestbookController {
+	@Resource(name = "guestbookService")
+	GuestbookService service;
+	
+	@GetMapping("/guestbook/list")
+	public List<GuestbookDto> getList(GuestbookDto dto){
+		return service.getList(dto);
+	}
+	
+	@PostMapping("/guestbook/write")
+	public void insert(@RequestBody GuestbookDto dto) {
+//		json 사용할 때는 @PostMapping, @RequestBody 필수!
+		try {
+			System.out.println(dto.getTitle());
+			service.insert(dto);
+			
+			System.out.println("성공");
+		} catch (Exception e) {
+			System.out.println("실패");
+		}
+	}
+}

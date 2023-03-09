@@ -1,0 +1,15 @@
+package jpaexam.address;
+
+public class AddressController {
+	public static void main(String[] args) {
+		AddressManager mng = new AddressManager();
+		
+		int menu = mng.showMenu();
+		
+		if(menu==1) {
+			mng.register();
+		}
+		
+		mng.close();
+	}
+}

@@ -1,0 +1,7 @@
+
+public class RSPMain {
+	public static void main(String[] args) {
+		Enemy e = new Enemy();
+		e.tellPick();
+	}
+}

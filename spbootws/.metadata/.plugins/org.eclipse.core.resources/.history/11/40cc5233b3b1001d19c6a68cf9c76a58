@@ -1,0 +1,5 @@
+package jpaexam.address;
+
+public class AddressManager {
+
+}

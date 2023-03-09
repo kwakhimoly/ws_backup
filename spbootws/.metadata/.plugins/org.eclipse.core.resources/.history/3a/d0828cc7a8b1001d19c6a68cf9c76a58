@@ -1,0 +1,111 @@
+package jpaedu.exam.dao;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
+import jpaeduexam.dto.EmpDto;
+
+public class EmpDao {
+	EntityManagerFactory factory = Persistence.createEntityManagerFactory("emptest");
+	EntityManager em = factory.createEntityManager();
+	
+	public void close() {
+		em.close();
+		factory.close();
+	}
+	
+	public void printAll() {
+		TypedQuery<EmpDto> query = em.createQuery("select t from EmpDto t", EmpDto.class);
+		List<EmpDto> list = query.getResultList();
+//		for (int i = 0; i < list.size(); i++) {
+//			System.out.println(list.get(i));
+//		} -> 람다 식으로 바꾸기
+		
+//		forEach는 매개변수로 함수를 전달해야 한다.
+		list.stream().forEach(e->{
+			System.out.println(e);
+		});
+	}
+	
+//	이름으로 검색
+	public void searchName(String name) {
+		String sql = "select t from EmpDto t where t.ename like :ename";
+		TypedQuery<EmpDto> q = em.createQuery(sql, EmpDto.class);
+		q.setParameter("ename", "%"+name+"%");
+		
+		List<EmpDto> list = q.getResultList();
+		list.stream().forEach(item->{
+			System.out.println(item);
+		});
+	}
+	
+//	두 가지 조건
+	public void searchNameAndJob(String name, String job) {
+		StringBuffer buffer = new StringBuffer();
+		
+		buffer.append("select t from EmpDto t ");
+		buffer.append("where t.ename like :ename and t.job like :job");
+		TypedQuery<EmpDto> q = em.createQuery(buffer.toString(), EmpDto.class);
+		q.setParameter("ename", "%"+name+"%");
+		q.setParameter("job", "%"+job+"%");
+		
+		List<EmpDto> list = q.getResultList();
+		list.stream().forEach(item->{
+			System.out.println(item);
+		});
+	}
+	
+//	두 가지 조건
+	public void searchNameAndJob2(String name, String job) {
+		StringBuffer buffer = new StringBuffer();
+		
+		buffer.append("select t from EmpDto t ");
+		buffer.append("where t.ename like ?1 and t.job like ?2");
+//		?1 : 첫번 째 파라미터, ?2 : 두번째 파라미터
+		TypedQuery<EmpDto> q = em.createQuery(buffer.toString(), EmpDto.class);
+		q.setParameter(1, "%"+name+"%");
+		q.setParameter(2, "%"+job+"%");
+		
+		List<EmpDto> list = q.getResultList();
+		list.stream().forEach(item->{
+			System.out.println(item);
+		});
+	}
+	
+	public void groupFunctionTest() {
+		Query query = em.createQuery("select sum(t.sal) from EmpDto t");
+		Object result = (Object)query.getSingleResult();
+		System.out.println(result);
+	}
+	
+	public void updateSal(Integer empno, int sal) {
+		String sql = "select t from EmpDto t where t.empno = :empno";
+		TypedQuery<EmpDto> q = em.createQuery(sql, EmpDto.class);
+		q.setParameter("empno", empno);
+		
+		EmpDto dto = q.getSingleResult(); //첫번째 하나만
+		if(dto!=null) {
+			em.getTransaction().begin();
+			dto.setSal(sal);
+			em.getTransaction().commit();
+		}
+	}
+	
+	public void updateJob(int empno, String job) {
+		String sql = "select t from EmpDto t where t.empno = :empno";
+		TypedQuery<EmpDto> q = em.createQuery(sql, EmpDto.class);
+		q.setParameter("empno", empno);
+		
+		EmpDto dto = q.getSingleResult();
+		if(dto!=null) {
+			em.getTransaction().begin();
+			dto.setJob(job);
+			em.getTransaction().commit();
+		}
+	}
+}

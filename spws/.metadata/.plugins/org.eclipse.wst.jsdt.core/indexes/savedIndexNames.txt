@@ -1,0 +1,12 @@
+INDEX VERSION 1.4+C:\kwak\spws\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+894167609.index
+2419803005.index
+1039224533.index
+2117411409.index
+4025686218.index
+3202952903.index
+154276551.index
+3005317857.index
+985413812.index
+770446372.index
+150095193.index

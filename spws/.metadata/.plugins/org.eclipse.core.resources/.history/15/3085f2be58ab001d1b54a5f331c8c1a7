@@ -1,0 +1,9 @@
+package com.kosa.myapp3.mapper;
+
+import org.springframework.stereotype.Repository;
+
+import com.kosa.myapp3.member.MemberDto;
+@Repository("memberDao")
+public interface MemberMapper {
+	public void Member_insert(MemberDto dto);
+}

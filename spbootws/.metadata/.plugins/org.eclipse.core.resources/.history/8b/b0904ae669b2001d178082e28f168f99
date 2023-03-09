@@ -1,0 +1,39 @@
+package com.kosa.myapp.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.kosa.myapp.domain.MemberDto;
+import com.kosa.myapp.repository.MemberDao;
+
+@Service("memberService")
+public class MemberService {
+	@Autowired
+	MemberDao dao;
+	
+	public List<MemberDto> getList(MemberDto dto, Pageable pageable){
+//		Pageable : springframework.domain import
+		return dao.findAll(pageable).getContent();
+//		페이징 정보 추가했을 때
+	}
+	
+	public long getTotalCnt(MemberDto dto) {
+		return dao.count();
+	}
+	
+	public void insert(MemberDto dto) {
+//		아이디 중복체크 해야 함
+		dao.save(dto);
+	}
+	
+	public void update(MemberDto dto) {
+		dao.save(dto);
+	}
+	
+	public void delete(MemberDto dto) {
+		dao.delete(dto);
+	}
+}

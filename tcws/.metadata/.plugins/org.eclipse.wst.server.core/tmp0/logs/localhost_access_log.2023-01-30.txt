@@ -1,0 +1,10 @@
+127.0.0.1 - - [30/Jan/2023:16:17:27 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [30/Jan/2023:16:17:28 +0900] "GET /review/ HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [30/Jan/2023:16:17:33 +0900] "GET /review/ HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [30/Jan/2023:16:17:36 +0900] "GET /review/list HTTP/1.1" 404 822
+0:0:0:0:0:0:0:1 - - [30/Jan/2023:16:17:58 +0900] "GET /review/movie.do HTTP/1.1" 200 9485
+0:0:0:0:0:0:0:1 - - [30/Jan/2023:16:17:58 +0900] "GET /review/images/logo.png HTTP/1.1" 200 15771
+0:0:0:0:0:0:0:1 - - [30/Jan/2023:16:17:58 +0900] "GET /review/upload/poster/sundownposter.jpg HTTP/1.1" 200 109047
+0:0:0:0:0:0:0:1 - - [30/Jan/2023:16:17:58 +0900] "GET /review/upload/poster/gagarineposter.jpg HTTP/1.1" 200 226103
+0:0:0:0:0:0:0:1 - - [30/Jan/2023:16:17:58 +0900] "GET /review/upload/poster/sickofmyselfposter.jpg HTTP/1.1" 200 636637
+0:0:0:0:0:0:0:1 - - [30/Jan/2023:16:17:58 +0900] "GET /review/upload/poster/downwithloveposter.jpg HTTP/1.1" 200 133767

@@ -1,0 +1,26 @@
+server.port=9090
+spring.mustache.suffix=.html
+server.servlet.encoding.force=true
+
+#세션 값을 mustatche 엔진에서 표출되도록 설정해야 함
+spring.mustache.servlet.expose-session-attributes=true
+
+#오라클 접속 -> db 커넥션 풀이 아니라 안정적이지 않음
+spring.datasource.url=jdbc:oracle:thin:@127.0.0.1:1521:XE
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.username=k
+spring.datasource.password=1234
+
+##오라클 접속 : hikari(JDBC가 지원하는 DB커넥션풀 프레임워크)
+#spring.datasource.initialize=true
+#spring.datasource.hikari.jdbc-url=jdbc:oracle:thin:@127.0.0.1:1521:XE
+#spring.datasource.hikari.driver-class-name=oracle.jdbc.driver
+#spring.datasource.hikari.username=k
+#spring.datasource.hikari.password=1234
+
+#파일 업로드 설정
+spring.servlet.multipart.maxFileSize=20MB
+spring.servlet.multipart.maxRequestSize=20MB
+
+fileUploadPath=fileUpload
+domain=http://127.0.0.1:9090

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+
+	<select id="Board_getTotalCnt" parameterType="BoardDto"
+		resultType="Integer">
+		select count(*) from board
+	</select>
+
+	<select id="Board_getList" parameterType="BoardDto"
+		resultType="BoardDto">
+		SELECT
+			b.seq,
+			b.title,
+			b.userid,
+			nvl(filename1,'') as filename1,
+			nvl(filename2,'') as filename2,
+			nvl(filename3,'') as filename3,
+			to_char(regdate, 'yyyy-mm-dd') as regdate,
+			to_char(moddate, 'yyyy-mm-dd') as moddate,
+			b.depth,
+			b.g_level,
+			b.group_id,
+			b.rnum as num,
+			nvl(hit, 0) hit
+		FROM
+			(select
+				a.seq,
+				a.title,
+				a.userid,
+				a.contents,
+				a.filename1,
+				a.filename2,
+				a.filename3,
+				a.regdate,
+				a.moddate,
+				a.hit,
+				a.depth,
+				a.g_level,
+				a.group_id,
+				row_number() over (order by group_id desc, g_level asc) as rnum,
+				ceil(row_number() over(order by group_id desc, g_level asc)/#{pgSize})-1 as pg
+			from board A
+			) B 
+		WHERE pg=#{pg}
+	</select>
+	
+	<insert id="Board_insert" parameterType="BoardDto">
+		<selectKey resultType="String" keyProperty="seq" order="BEFORE">
+			select nvl(max(seq),0)+1 as seq from board
+		</selectKey>
+		
+		INSERT INTO board 
+		(seq, 
+		userid, 
+		title, 
+		contents,
+		filename1, 
+		filename2, 
+		filename3, 
+		regdate,
+		moddate, 
+		delyn, 
+		group_id, 
+		depth, 
+		g_level, 
+		hit) 
+	VALUES 
+		(
+		#{seq},
+		#{userid},
+		#{title},
+		#{contents},
+		#{filename1},
+		#{filename2},
+		#{filename3},
+		sysdate,
+		sysdate,
+		'N',
+		#{seq},
+		0,
+		1,
+		0
+		)
+		
+	</insert>
+</mapper>

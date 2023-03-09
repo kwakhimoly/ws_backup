@@ -1,0 +1,16 @@
+
+2월 01, 2023 17:25:41.12 NEW SESSION
+2월 01, 2023 17:25:41.12 [7068:1584:0201/172541.118:ERROR:device_event_log_impl.cc(215)] [17:25:41.118] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+2월 01, 2023 17:26:34.61 [7068:11148:0201/172634.610:ERROR:util.cc(134)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+2월 06, 2023 09:16:40.73 NEW SESSION
+2월 06, 2023 09:16:40.73 [5676:4116:0206/091639.625:ERROR:device_event_log_impl.cc(215)] [09:16:39.625] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+2월 06, 2023 09:17:34.89 [5676:9012:0206/091734.893:ERROR:util.cc(134)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+2월 06, 2023 09:19:22.84 [5676:4116:0206/091922.843:ERROR:CONSOLE(1)] "Uncaught (in promise) RangeError: Invalid line number 62 in 1-line document", source: devtools://devtools/bundled/devtools-frontend/front_end/third_party/codemirror.next/chunk/codemirror.js (1)
+
+2월 07, 2023 13:02:11.52 NEW SESSION
+2월 07, 2023 13:02:11.52 [6016:8364:0207/130211.499:ERROR:device_event_log_impl.cc(215)] [13:02:11.498] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+
+2월 08, 2023 09:00:15.06 NEW SESSION
+2월 08, 2023 09:00:15.06 [8684:3380:0208/090015.060:ERROR:device_event_log_impl.cc(215)] [09:00:15.060] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+2월 08, 2023 09:01:10.54 [8684:976:0208/090110.543:ERROR:util.cc(134)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

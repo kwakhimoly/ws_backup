@@ -1,0 +1,17 @@
+package com.kwak.dec141uc.main;
+
+import java.util.Scanner;
+
+public class FWMain {
+
+	public static void main(String[] args) {
+//		CPU: 연산
+//		RAM: 변수형태로 임시저장공간(재부팅하면 삭제)
+//		SSD / HDD: 파일형태로 영구저장공간
+		
+		Scanner k = new Scanner(System.in);
+		System.out.print("뭐: ");
+		String txt = k.next();
+	}
+
+}

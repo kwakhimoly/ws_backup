@@ -1,0 +1,115 @@
+package com.kosa.myapp3.member;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class MemberController {
+	
+	@Resource(name = "memberService")
+	MemberService service;
+	
+	@ResponseBody
+	@RequestMapping(value = "/member/save")
+	public Map<String, Object> member_save(MemberDto dto){
+		service.Member_insert(dto);
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		try {
+			map.put("result", "success");
+			map.put("message", "회원가입을 축하드립니다!");
+		} catch (Exception e) {
+			map.put("result", "fail");
+			map.put("message", "회원가입에 실패하였습니다.");
+			e.printStackTrace();
+		}
+		
+		
+		return map;
+	}
+	
+	@RequestMapping(value = "/member/write")
+	public String member_write(MemberDto dto) {
+		
+		return "member/member_write";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/member/idcheck")
+	public Map<String, Object> member_idcheck(MemberDto dto){
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		if(service.Member_idcheck(dto)) {
+			map.put("result", "success");
+			map.put("message", "사용 가능한 아이디입니다.");
+		} else {
+			map.put("result", "fail");
+			map.put("message", "중복되는 아이디입니다.");
+		}
+		
+		return map;
+	}
+	
+	@RequestMapping(value = "/member/login")
+	public String member_login(MemberDto dto) {
+		
+		return "member/member_login";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/member/logout")
+	public Map<String, Object> member_logout(MemberDto dto, HttpServletRequest req) {
+		HttpSession session = req.getSession();
+		session.invalidate();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("result", "success");
+		map.put("message", "로그아웃 성공");
+		return map;
+	}
+	
+	
+//	함수 만들 때 에러 먼저 처리하고 성공 시 할 작업을 적는 게 더 좋음.
+	@ResponseBody
+	@RequestMapping(value = "/member/login_proc")
+	public Map<String, Object> member_loginProc(MemberDto dto, HttpServletRequest request) {
+//		세션 객체는 사용자가 브라우저를 통해서 서버로 접근하면 사용자마다 이미 만들어져 있다. 
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+//		시스템에서 서버 접근 요청이 있을 때(서버 접근자마다) 하나씩 개체가 만들어진다. 
+//		session은 만드는 게 아니라 request 통해서 가져오는 것!
+		HttpSession session = request.getSession();
+		
+		MemberDto resultDto = service.Member_login(dto);
+		
+		if(resultDto==null) {
+			map.put("result", "fail");
+			map.put("message", "해당 아이디가 존재하지 않습니다.");
+			return map;
+		}
+		
+		if(!resultDto.getPassword().equals(dto.getPassword())) {
+			map.put("result", "fail");
+			map.put("message", "패스워드가 일치하지 않습니다.");
+			return map;
+		}
+		
+//		성공 시 세션에 성공 정보를 저장한다.
+//		세션에 너무 많은 정보를 저장하면 시스템에 과부하가 걸림.
+		session.setAttribute("user_id", resultDto.getUser_id());
+		session.setAttribute("user_name", resultDto.getUser_name());
+		session.setAttribute("email", resultDto.getEmail());
+		
+		map.put("result", "success");
+		map.put("message", "로그인 성공");
+		
+		return map;
+	}
+}

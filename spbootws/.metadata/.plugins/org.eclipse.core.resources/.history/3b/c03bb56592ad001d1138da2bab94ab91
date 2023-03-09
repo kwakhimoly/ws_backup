@@ -1,0 +1,82 @@
+package com.kosa.myapp;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+@RestController
+public class TestController {
+//	add?x=5&y=7 (예전 방식)
+//	add/5/7 (새로운 방식)
+	@GetMapping("/add/{x}/{y}")
+	public Map<String, String> add(@PathVariable("x")int x,@PathVariable("y")int y){
+		int result = x+y;
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("x", String.valueOf(x));
+		map.put("y", String.valueOf(y));
+		map.put("result", String.valueOf(result));
+		
+		return map;
+	}
+
+//	postman 앱의 body -> x-www-form-urldncoded < form 태그로 전송	
+	@PostMapping("/add_form")
+	public Map<String, String> add_form(int x,int y,HttpServletRequest req){
+		int result = x+y;
+		
+		Map<String, String> map = new HashMap<>();
+//		form 태그의 enctype="multipart/form-data" 로 전송하면 request 객체가 값을 못 받음
+		map.put("req_x", req.getParameter("x"));
+		map.put("req_y", req.getParameter("y"));
+		
+		map.put("x", String.valueOf(x));
+		map.put("y", String.valueOf(y));
+		map.put("result", String.valueOf(result));
+		
+		return map;
+	}
+	
+	@GetMapping("/calc/{a}/{b}/{oper}")
+	public Map<String, Integer> calc
+	(@PathVariable("a")int a, @PathVariable("b")int b, @PathVariable("oper")int oper){
+		
+		Map<String, Integer> map = new HashMap<>();
+		map.put("a", a);
+		map.put("b", b);
+		
+		if(oper==1) {
+			map.put("result", a+b);
+		} else if(oper==2) {
+			map.put("result", a-b);
+		} else if(oper==3) {
+			map.put("result", a*b);
+		} else if(oper==4) {
+			map.put("result", a/b);
+		}
+		
+		return map;
+	}
+	
+	@GetMapping("/score/{name}/{kor}/{eng}/{mat}")
+	public Map<String, Object> score
+	(@PathVariable("name")String name, @PathVariable("kor")int kor, 
+	@PathVariable("eng")int eng, @PathVariable("mat")int mat){
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("name", name);
+		map.put("kor", kor);
+		map.put("eng", eng);
+		map.put("mat", mat);
+		map.put("total", kor+eng+mat);
+		map.put("avg", (kor+mat+eng)/3.0);
+		
+		return map;
+	}
+}

@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
+	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-1.8"/>
+	<item key="SortMembers.sort_all" value="false"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\kwak\externalJar"/>
+	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
+		<item key="group_libraries" value="true"/>
+		<item key="layout" value="2"/>
+		<item key="rootMode" value="1"/>
+		<item key="linkWithEditor" value="false"/>
+		<item key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;packageExplorer group_libraries=&quot;1&quot; layout=&quot;2&quot; linkWithEditor=&quot;0&quot; rootMode=&quot;1&quot; workingSetName=&quot;Aggregate for window 1669775681382&quot;&gt;&#x0D;&#x0A;&lt;customFilters userDefinedPatternsEnabled=&quot;false&quot;&gt;&#x0D;&#x0A;&lt;xmlDefinedFilters&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.StaticsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.buildship.ui.packageexplorer.filter.gradle.buildfolder&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.m2e.MavenModuleFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.buildship.ui.packageexplorer.filter.gradle.subProject&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.pde.ui.BinaryProjectFilter1&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.pde.ui.ExternalPluginLibrariesFilter1&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.FieldsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.DeprecatedMembersFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LibraryFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;/xmlDefinedFilters&gt;&#x0D;&#x0A;&lt;/customFilters&gt;&#x0D;&#x0A;&lt;/packageExplorer&gt;"/>
+	</section>
+	<section name="JavaElementSearchActions">
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item key="org.eclipse.jdt.ui.typecomment.deprecated" value="true"/>
+	</section>
+	<section name="NewClassWizardPage">
+		<item key="create_constructor" value="false"/>
+		<item key="create_unimplemented" value="true"/>
+	</section>
+	<section name="completion_proposal_size">
+		<item key="contextSelector.size.x" value="331"/>
+		<item key="contextSelector.size.y" value="221"/>
+	</section>
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="FatJarPackageWizard">
+		<item key="FatJarPackageWizardPage.ANTSCRIPT_SAVE" value="false"/>
+		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="C:\kwak\ecws"/>
+		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="1"/>
+		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="docMain - Dec02_1_0"/>
+		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="C:\Users\user\Desktop\docFat_v.1"/>
+		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\user\Desktop\docFat_v.1"/>
+			<item value="C:\Users\user\Desktop\docFat_ver.1"/>
+			<item value="C:\Users\user\Desktop\nameCard_v1.1.jar"/>
+			<item value="C:\Users\user\Desktop\nameCard_v1.0.jar"/>
+		</list>
+		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="C:\kwak\ecws.xml"/>
+			<item value=".xml"/>
+		</list>
+	</section>
+	<section name="RenameInformationPopup">
+	</section>
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item key="updateSimilarElements" value="false"/>
+		<item key="updateSimilarElementsMatchStrategy" value="1"/>
+		<item key="updateTextualMatches" value="false"/>
+		<item key="updateQualifiedNames" value="false"/>
+		<item key="patterns" value="*"/>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog2">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="316"/>
+			<item key="DIALOG_Y_ORIGIN" value="190"/>
+			<item key="DIALOG_FONT_NAME" value="1|@D2Coding ligature|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|-127|3|2|1|49|@D2Coding ligature"/>
+		</section>
+	</section>
+	<section name="JarPackageWizard">
+		<item key="JarPackageWizardPage.EXPORT_CLASS_FILES" value="true"/>
+		<item key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER" value="false"/>
+		<item key="JarPackageWizardPage.EXPORT_JAVA_FILES" value="false"/>
+		<item key="JarPackageWizardPage.REFACTORINGS" value="false"/>
+		<item key="JarPackageWizardPage.COMPRESS" value="true"/>
+		<item key="JarPackageWizardPage.INCLUDE_DIRECTORY_ENTRIES" value="false"/>
+		<item key="JarPackageWizardPage.OVERWRITE" value="false"/>
+		<item key="jarOptionsWizardPage.EXPORT_WARNINGS" value="true"/>
+		<item key="jarOptionsWizardPage.EXPORT_ERRORS" value="true"/>
+		<item key="jarOptionsWizardPage.STORE_USE_SRC_FOLDERS" value="false"/>
+		<item key="jarOptionsWizardPage.BUILD_IF_NEEDED" value="true"/>
+		<item key="jarOptionsWizardPage.SAVE_DESCRIPTION" value="false"/>
+		<item key="jarOptionsWizardPage.DESCRIPTION_LOCATION" value=""/>
+		<item key="JarManifestWizardPage.GENERATE_MANIFEST" value="true"/>
+		<item key="JarManifestWizardPage.SAVE_MANIFEST" value="false"/>
+		<item key="JarManifestWizardPage.REUSE_MANIFEST" value="false"/>
+		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
+		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
+		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\user\Desktop\jar 파일\kwakDBManager_v1.0.jar"/>
+			<item value="C:\Users\user\Desktop\jar 파일\calculator_v1.0.jar"/>
+			<item value="C:\Users\user\Desktop\hulk_v1.0.jar"/>
+			<item value="C:\Users\user\Desktop\dog_v1.0.jar"/>
+			<item value="C:\Users\user\Desktop\enemy_v1.0.jar"/>
+			<item value="C:\Users\user\Desktop\user_v1.0.jar"/>
+			<item value="C:\Users\user\Desktop\doc_fat_ver.1.jar"/>
+		</list>
+	</section>
+	<section name="RefactoringWizard.preview">
+		<item key="width" value="600"/>
+		<item key="height" value="400"/>
+	</section>
+	<section name="NewPackageWizardPage">
+		<item key="create_package_info_java" value="false"/>
+	</section>
+	<section name="SourceActionDialog.constructors">
+		<item key="VisibilityModifier" value="1"/>
+		<item key="FinalModifier" value="false"/>
+		<item key="SynchronizedModifier" value="false"/>
+		<item key="Comments" value="false"/>
+		<item key="InsertPosition.v2" value="2"/>
+	</section>
+	<section name="GenerateConstructorUsingFieldsSelectionDialog">
+		<item key="OmitCallToSuper" value="false"/>
+	</section>
+	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
+		<item key="DIALOG_X_ORIGIN" value="407"/>
+		<item key="DIALOG_Y_ORIGIN" value="96"/>
+		<item key="DIALOG_WIDTH" value="560"/>
+		<item key="DIALOG_HEIGHT" value="641"/>
+		<item key="DIALOG_FONT_NAME" value="1|@D2Coding ligature|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|-127|3|2|1|49|@D2Coding ligature"/>
+	</section>
+	<section name="SourceActionDialog.methods">
+		<item key="LimitElements" value="false"/>
+		<item key="IgnoreDefault" value="true"/>
+		<item key="StringStyle" value="0"/>
+		<item key="LimitValue" value="10"/>
+		<item key="SkipNull" value="false"/>
+		<item key="ToStringTemplateSelected" value="0"/>
+		<item key="FinalModifier" value="false"/>
+		<item key="SynchronizedModifier" value="false"/>
+		<item key="Comments" value="false"/>
+		<item key="VisibilityModifier" value="1"/>
+		<item key="InsertPosition.v2" value="1"/>
+	</section>
+	<section name="DialogBounds_GenerateToStringDialog">
+		<item key="DIALOG_X_ORIGIN" value="456"/>
+		<item key="DIALOG_Y_ORIGIN" value="85"/>
+		<item key="DIALOG_WIDTH" value="521"/>
+		<item key="DIALOG_HEIGHT" value="657"/>
+		<item key="DIALOG_FONT_NAME" value="1|@D2Coding ligature|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|-127|3|2|1|49|@D2Coding ligature"/>
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="2"/>
+	</section>
+	<section name="JavadocWizardDialog">
+		<item key="DIALOG_X_ORIGIN" value="199"/>
+		<item key="DIALOG_Y_ORIGIN" value="157"/>
+		<item key="DIALOG_WIDTH" value="1034"/>
+		<item key="DIALOG_HEIGHT" value="549"/>
+		<item key="DIALOG_FONT_NAME" value="1|@D2Coding ligature|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|-127|3|2|1|49|@D2Coding ligature"/>
+	</section>
+	<section name="javadoc">
+		<item key="javadoc_command_history" value="C:\Users\user\OneDrive\바탕 화면\eclipse\plugins\org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.4.v20220903-1038\jre\bin\javadoc.exe"/>
+		<item key="fromStandard" value="true"/>
+		<item key="docletname" value=""/>
+		<item key="docletpath" value=""/>
+		<item key="access" value="public"/>
+		<item key="use" value="true"/>
+		<item key="author" value="true"/>
+		<item key="version" value="true"/>
+		<item key="nodeprecated" value="false"/>
+		<item key="nodeprecatedlist" value="false"/>
+		<item key="splitindex" value="true"/>
+		<item key="noindex" value="false"/>
+		<item key="notree" value="false"/>
+		<item key="nonavbar" value="false"/>
+		<item key="openinbrowser" value="false"/>
+		<item key="source" value="1.8"/>
+		<item key="antpath" value="C:\kwak\ecws\Dec13_3_exceptionHandling\javadoc.xml"/>
+		<item key="destdir" value="C:\Users\user\Desktop\jar 파일"/>
+		<section name="projects">
+			<section name="Dec09_3_OOP_isA">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec09_3_OOP_isA\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec09_3_OOP_isA\javadoc.xml"/>
+			</section>
+			<section name="Dec08_3_OOP_RSP">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec08_3_OOP_RSP\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec08_3_OOP_RSP\javadoc.xml"/>
+			</section>
+			<section name="Nov30_1_Test">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Nov30_1_Test\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Nov30_1_Test\javadoc.xml"/>
+			</section>
+			<section name="Dec01_2_input">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec01_2_input\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec01_2_input\javadoc.xml"/>
+			</section>
+			<section name="Dec12_3_OOP_encapsulation">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec12_3_OOP_encapsulation\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec12_3_OOP_encapsulation\javadoc.xml"/>
+			</section>
+			<section name="Dec02_2_Function">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec02_2_Function\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec02_2_Function\javadoc.xml"/>
+			</section>
+			<section name="Dec13_1_OOP_final">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec13_1_OOP_final\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec13_1_OOP_final\javadoc.xml"/>
+			</section>
+			<section name="Nov30_3_exercise">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Nov30_3_exercise\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Nov30_3_exercise\javadoc.xml"/>
+			</section>
+			<section name="Dec12_1_OOP_package_import">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec12_1_OOP_package_import\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec12_1_OOP_package_import\javadoc.xml"/>
+			</section>
+			<section name="Dec12_6_ThisIsJava2_BOSS">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec12_6_ThisIsJava2_BOSS\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec12_6_ThisIsJava2_BOSS\javadoc.xml"/>
+			</section>
+			<section name="Dec06_2_PPSUmmary">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec06_2_PPSUmmary\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec06_2_PPSUmmary\javadoc.xml"/>
+			</section>
+			<section name="Dec01_3_Operator">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec01_3_Operator\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec01_3_Operator\javadoc.xml"/>
+			</section>
+			<section name="Dec09_2_OOP_HasA">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec09_2_OOP_HasA\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec09_2_OOP_HasA\javadoc.xml"/>
+			</section>
+			<section name="Dec09_1_ThisisJava">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\user\Desktop\asdf"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec09_1_ThisisJava\javadoc.xml"/>
+			</section>
+			<section name="Dec08_2_OOP_Constructor">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec08_2_OOP_Constructor\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec08_2_OOP_Constructor\javadoc.xml"/>
+			</section>
+			<section name="Dec06_1_Array">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec06_1_Array\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec06_1_Array\javadoc.xml"/>
+			</section>
+			<section name="Dec02_1_0">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec02_1_0\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec02_1_0\javadoc.xml"/>
+			</section>
+			<section name="Dec13_2_OOPSummary">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec13_2_OOPSummary\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec13_2_OOPSummary\javadoc.xml"/>
+			</section>
+			<section name="Dec05_2_RepeatStmt">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec05_2_RepeatStmt\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec05_2_RepeatStmt\javadoc.xml"/>
+			</section>
+			<section name="Nov30_2_print">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Nov30_2_print\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Nov30_2_print\javadoc.xml"/>
+			</section>
+			<section name="Dec08_1_OOP_static">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec08_1_OOP_static\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec08_1_OOP_static\javadoc.xml"/>
+			</section>
+			<section name="Dec13_3_exceptionHandling">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\Users\user\Desktop\jar 파일"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec13_3_exceptionHandling\javadoc.xml"/>
+			</section>
+			<section name="Dec01_1_Variable">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec01_1_Variable\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec01_1_Variable\javadoc.xml"/>
+			</section>
+			<section name="Dec12_5_OOP_abstract">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec12_5_OOP_abstract\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec12_5_OOP_abstract\javadoc.xml"/>
+			</section>
+			<section name="Dec12_2_OOP_accessModifier">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec12_2_OOP_accessModifier\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec12_2_OOP_accessModifier\javadoc.xml"/>
+			</section>
+			<section name="Dec07_1_OOP">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec07_1_OOP\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec07_1_OOP\javadoc.xml"/>
+			</section>
+			<section name="Dec05_1_ConditionalStmt">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec05_1_ConditionalStmt\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec05_1_ConditionalStmt\javadoc.xml"/>
+			</section>
+			<section name="Dec12_4_OOP_singletonPattern">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec12_4_OOP_singletonPattern\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec12_4_OOP_singletonPattern\javadoc.xml"/>
+			</section>
+			<section name="Dec12_7_ThisIsJava2_mine">
+				<item key="href" value=""/>
+				<item key="destdir" value="C:\kwak\ecws\Dec12_7_ThisIsJava2_mine\doc"/>
+				<item key="antpath" value="C:\kwak\ecws\Dec12_7_ThisIsJava2_mine\javadoc.xml"/>
+			</section>
+		</section>
+	</section>
+	<section name="AddUnimplementedConstructorsDialog">
+		<item key="OmitCallToSuper" value="false"/>
+	</section>
+	<section name="DialogBounds_AddUnimplementedConstructorsDialog">
+		<item key="DIALOG_X_ORIGIN" value="407"/>
+		<item key="DIALOG_Y_ORIGIN" value="128"/>
+		<item key="DIALOG_WIDTH" value="560"/>
+		<item key="DIALOG_HEIGHT" value="593"/>
+		<item key="DIALOG_FONT_NAME" value="1|@D2Coding ligature|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|-127|3|2|1|49|@D2Coding ligature"/>
+	</section>
+	<section name="AddGetterSetterDialog">
+		<item key="SortOrdering" value="false"/>
+		<item key="RemoveFinal" value="false"/>
+	</section>
+	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
+		<item key="DIALOG_X_ORIGIN" value="219"/>
+		<item key="DIALOG_Y_ORIGIN" value="83"/>
+		<item key="DIALOG_WIDTH" value="578"/>
+		<item key="DIALOG_HEIGHT" value="660"/>
+		<item key="DIALOG_FONT_NAME" value="1|@D2Coding ligature|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|-127|3|2|1|49|@D2Coding ligature"/>
+	</section>
+	<section name="SelfEncapsulateFieldWizard">
+		<item key="GenerateJavadoc" value="false"/>
+	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item key="index" value="0"/>
+	</section>
+	<section name="JavaSearchPage">
+		<item key="CASE_SENSITIVE" value="false"/>
+		<item key="INCLUDE_MASK" value="11"/>
+		<item key="HISTORY_SIZE" value="0"/>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.wizards.buildpaths.NewVariableEntryDialog">
+		<item key="DIALOG_X_ORIGIN" value="174"/>
+		<item key="DIALOG_Y_ORIGIN" value="17"/>
+		<item key="DIALOG_WIDTH" value="577"/>
+		<item key="DIALOG_HEIGHT" value="376"/>
+		<item key="DIALOG_FONT_NAME" value="1|@D2Coding ligature|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|-127|3|2|1|49|@D2Coding ligature"/>
+	</section>
+</section>

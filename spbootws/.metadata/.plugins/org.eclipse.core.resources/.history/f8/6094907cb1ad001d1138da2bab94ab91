@@ -1,0 +1,35 @@
+package com.kosa.myapp;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+//	스프링부트에서 jsp 사용하지 말고 mustache 쓰라고 했음
+//	템플릿, 템플릿엔진
+//	html 파일을 src/main/resources/template 폴더 아래에 둔다.
+@Controller
+public class TestTemplateController {
+	@GetMapping("/template1")
+	public String template1(Model model) {
+		model.addAttribute("msg", "스프링부트 템플릿 엔진");
+		model.addAttribute("name", "홍길동");
+		model.addAttribute("age", 32);
+		
+		List<String> sList = new ArrayList<>();
+		sList.add("장미");
+		sList.add("튤립");
+		sList.add("수선화");
+		sList.add("동백");
+		sList.add("무궁화");
+		sList.add("해바라기");
+		sList.add("라일락");
+		
+		model.addAttribute("sList",sList);
+		
+		return "template1";
+//		template1.html 찾아감
+	}
+}

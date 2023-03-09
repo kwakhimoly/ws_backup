@@ -1,0 +1,52 @@
+package com.kwak.dec221jdbc.main;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import hayoung.kwak.db.manager.KwakDBManager;
+
+public class SelectMain4 {
+
+//	insert / update / delete : 데이터 몇 개가 영향 받았나
+//	select : 데이터들
+
+	public static void main(String[] args) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null; 
+		Scanner k = new Scanner(System.in);
+		
+		try {
+			String url = "jdbc:oracle:thin:@192.168.0.3:1521:xe";
+			con =KwakDBManager.connect(url, "khy", "sol0415");
+			
+			System.out.print("지점명:");
+			String n = k.next();
+			
+			String sql = "select b_genre, avg(b_price) as avg_price from DEC22_BOOKINFO where b_no in "
+					+ "(select sl_b_no from DEC22_SELL where sl_s_name like '%'||?||'%') group by b_genre order by b_genre desc";
+
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, n);
+			
+			rs = pstmt.executeQuery();
+
+			
+			
+			while (rs.next()) {
+				System.out.println("========");
+				System.out.println(rs.getString("b_genre"));
+				System.out.println(rs.getDouble("avg_price"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		KwakDBManager.close(con, pstmt, rs);
+		k.close();
+	}
+}

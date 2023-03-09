@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.kosa.mycompany.Service&apos; to &apos;SampleService&apos;&#x0D;&#x0A;- Original project: &apos;aoptest&apos;&#x0D;&#x0A;- Original element: &apos;com.kosa.mycompany.Service&apos;&#x0D;&#x0A;- Renamed element: &apos;com.kosa.mycompany.SampleService&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Service&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.kosa.mycompany{Service.java[Service" matchStrategy="1" name="SampleService" qualified="false" references="true" similarDeclarations="false" stamp="1675649232053" textual="false" version="1.0"/>
+</session>

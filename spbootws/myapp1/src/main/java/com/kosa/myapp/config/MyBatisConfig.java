@@ -1,0 +1,60 @@
+package com.kosa.myapp.config;
+
+
+import javax.sql.DataSource;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
+//config인지를 지정하기 위한 annotation 작성
+//파일명과 클래스명은 마음대로 해도 되나 annotation 필수
+@Configuration
+public class MyBatisConfig {
+	@Bean //객체 생성
+	public SqlSessionFactory makeSqlSessionFactory(DataSource dataSource) throws Exception {
+//		SqlSessionFactory를 먼저 만들기 -> Factory: 공장 객체를 먼저 만든다
+		final SqlSessionFactoryBean factory = new SqlSessionFactoryBean();
+		
+//		저 객체와 application.properties 파일에 있는 datasource와 연결
+		factory.setDataSource(dataSource);
+//		설정파일과 연동하기(myBatis-config.xml) 파일과 연동
+		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+//		Resource : core.io.Resource import
+//		classpath - src/main/resource
+		Resource configLocation = resolver.getResource("classpath:mybatis-config.xml");
+		
+		factory.setConfigLocation(configLocation);
+		
+		return factory.getObject();
+	}
+	
+	@Bean
+	public SqlSessionTemplate makeSqlSession(SqlSessionFactory factory) {
+		
+		return new SqlSessionTemplate(factory);
+	}
+	
+	@Autowired
+	org.springframework.context.ApplicationContext applicationContext;
+	
+	@Bean
+	@ConfigurationProperties(prefix = "spring.datasource.hikari")
+	public HikariConfig hikariConfig() {
+		return new HikariConfig();
+	}
+	
+	@Bean
+	public DataSource dataSource() {
+		return new HikariDataSource(hikariConfig());
+	}
+}
