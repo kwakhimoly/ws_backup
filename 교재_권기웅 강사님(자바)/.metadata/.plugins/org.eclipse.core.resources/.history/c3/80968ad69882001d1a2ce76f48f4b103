@@ -1,0 +1,31 @@
+package com.kwon.sddevice.main;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import kiung.kwon.db.manager.KwonDBManager;
+
+// M : back-end개발자
+public class DeviceDAO {
+	public static void regDevice(Device d) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = KwonDBManager.connect("jdbc:oracle:thin:@192.168.0.32:1521:xe", "teacher", "1");
+			
+			String sql 
+				= "insert into sd_device "
+				+ "values(sd_seq.nextval, ?, ?, ?, ?)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, d.getName());
+			pstmt.setString(2, d.getCate());
+			pstmt.setInt(3, d.getPrice());
+			pstmt.setString(4, d.getWhere());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		KwonDBManager.close(con, pstmt, null);
+	}
+}

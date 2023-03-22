@@ -1,0 +1,6 @@
+package com.kwon.sddevice.main;
+
+// M : back-end개발자
+public class DeviceDAO {
+
+}

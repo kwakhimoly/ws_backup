@@ -1,0 +1,29 @@
+package com.kwon.dec162uc.main;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+// 자원2021/for BigData/
+// 1. 이문열 삼국지 10권 다 콘솔에 출력
+public class UCMain6 {
+	public static void main(String[] args) {
+		BufferedReader br = null;
+		try {
+			FileInputStream fis = new FileInputStream("C:\\Kwon\\자원2021\\for BigData\\이문열 삼국지\\[이문열]삼국지 01.txt");
+			InputStreamReader isr = new InputStreamReader(fis, "euc-kr");
+			br = new BufferedReader(isr);
+			String line = null;
+			while ((line = br.readLine()) != null) {
+				System.out.println(line);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			br.close();
+		} catch (IOException e) {
+		}
+	}
+}

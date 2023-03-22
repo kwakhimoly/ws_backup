@@ -1,0 +1,45 @@
+package com.kwon.dec162uc.main;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+// 유비 3434534
+// 조조 123123676
+// 손권 45434
+public class UCMain6 {
+	public static void main(String[] args) {
+		for (int i = 1; i < 11; i++) {
+			String fileName = String.format("[이문열]삼국지 %02d.txt", i);
+			BufferedReader br = null;
+			try {
+				FileInputStream fis = new FileInputStream("C:\\Kwon\\자원2021\\for BigData\\이문열 삼국지\\" + fileName);
+				InputStreamReader isr = new InputStreamReader(fis, "euc-kr");
+				br = new BufferedReader(isr);
+				String line = null;
+				while ((line = br.readLine()) != null) {
+					StringTokenizer st = new StringTokenizer(line, " ");
+					while (st.hasMoreTokens()) {
+						String word = st.nextToken();
+						if (word.contains("유비")) {
+							
+						} else if(word.contains("조조")) {
+
+						} else if(word.contains("손권")) {
+
+						}
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			try {
+				br.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

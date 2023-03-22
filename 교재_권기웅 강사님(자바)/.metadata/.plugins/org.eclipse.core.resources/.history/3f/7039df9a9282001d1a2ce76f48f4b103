@@ -1,0 +1,26 @@
+package com.kwon.sddevice.main;
+
+import java.util.Scanner;
+
+// V : 디자이너
+public class ConsoleScreen {
+	private Scanner inputSystem;
+	
+	public ConsoleScreen() {
+		inputSystem = new Scanner(System.in);
+	}
+	
+	public int showMainMenu() {
+		System.out.println("장비관리---");
+		System.out.println("1. 장비등록");
+		System.out.println("...");
+		System.out.println("10. 종료");
+		System.out.println("-----");
+		System.out.print("뭐 : ");
+		return inputSystem.nextInt();
+	}
+	
+	public void bye() {
+		inputSystem.close();
+	}
+}

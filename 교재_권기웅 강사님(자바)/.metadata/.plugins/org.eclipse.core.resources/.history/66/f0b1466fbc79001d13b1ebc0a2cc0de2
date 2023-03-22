@@ -1,0 +1,9 @@
+package com.kwon.dec121oop.main;
+
+public class OMain3 {
+	public static void main(String[] args) {
+		com.kwon.dec121oop.animal.Cat c 
+			= new com.kwon.dec121oop.animal.Cat("나비", 1);
+		c.print();
+	}
+}

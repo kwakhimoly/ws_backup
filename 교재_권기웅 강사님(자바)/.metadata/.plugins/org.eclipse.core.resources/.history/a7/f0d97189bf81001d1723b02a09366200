@@ -1,0 +1,11 @@
+package com.kwon.dec221jdbc.main;
+
+// 지점명 : 
+// -----------------
+// 삼국지1, 소설, 20000, 2001/01/01
+// ...
+public class SelectMain2 {
+	public static void main(String[] args) {
+		
+	}
+}

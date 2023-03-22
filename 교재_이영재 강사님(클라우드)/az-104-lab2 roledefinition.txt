@@ -1,0 +1,20 @@
+{
+    "properties": {
+        "roleName": "custom support  (test)",
+        "description": "",
+        "assignableScopes": [
+            "/subscriptions/2b5e5873-c01b-4ad8-a5d0-bab85161a298"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Support/*"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}

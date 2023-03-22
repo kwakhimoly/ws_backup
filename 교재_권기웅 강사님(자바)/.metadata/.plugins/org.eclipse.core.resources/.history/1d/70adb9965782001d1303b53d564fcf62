@@ -1,0 +1,10 @@
+package com.kwon.dec231mvc.main;
+
+// MVC패턴
+//		한 파일은 한명이 책임지고 끝내자
+//		한 파일은 M/V/C 중에 한 역할만 하자
+
+
+public class C {
+
+}

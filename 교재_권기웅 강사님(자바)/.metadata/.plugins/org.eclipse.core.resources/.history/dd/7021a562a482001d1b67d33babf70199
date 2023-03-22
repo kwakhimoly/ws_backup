@@ -1,0 +1,10 @@
+package com.kwon.sddevice.main;
+
+import java.util.Date;
+
+public class main {
+	public main() {
+		Date d =  new Date();
+		System.out.println(d);
+	}
+}

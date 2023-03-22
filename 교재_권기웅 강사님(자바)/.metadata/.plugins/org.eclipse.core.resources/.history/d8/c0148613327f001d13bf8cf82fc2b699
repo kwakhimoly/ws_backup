@@ -1,0 +1,17 @@
+package com.kwon.dec162uc.main;
+
+import java.util.HashSet;
+
+// []
+// List계열 : 가변사이즈 배열
+// Set계열
+// Map계열
+public class UCMain4 {
+	public static void main(String[] args) {
+		HashSet<String> hs = new HashSet<>();
+		
+	}
+}
+
+
+

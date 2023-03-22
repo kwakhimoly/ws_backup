@@ -1,0 +1,6 @@
+package com.kwon.dec232mvc.main;
+
+// MainController
+public class HomeController {
+
+}

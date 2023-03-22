@@ -1,0 +1,80 @@
+-- SQL(Structured Query Language)
+--		RDBMS를 제어하는 언어
+--		OracleDB든 MySQL이든 99%는 같음
+--		대소문자 구별x -> 대문자로 인식
+----------------------------------------
+-- 열(column) : 필드(field)
+-- 행(row) : 데이터(data), 레코드(record) 
+----------------------------------------
+-- 용량
+--		5 : 5bytes(영어/숫자1글자=1byte, 한글1글자=3bytes)
+--		5 char : 5글자(사실은 15bytes겠지만...)
+----------------------------------------
+-- 자료형
+-- 글자
+--		char(용량) : 무조건 그 용량대로 저장
+--					빠름
+--					자리수 변동이 없는 데이터
+--		varchar2(용량) : 덜쓰면 덜쓴대로 저장
+--						용량절약
+--						느림
+--						주력
+-- 숫자
+--		number(용량) : 정수형
+--		number(용량, 용량) : 실수형
+--			number(5, 3) : 99.999
+-- 날짜
+--		date
+------------------------------------------
+-- 테이블 삭제
+drop table 테이블명 cascade constraint purge;
+drop table dec19_product2 cascade constraint purge;
+
+-- 테이블 만들기
+create table 테이블명(
+	필드명 자료형 옵션,
+	필드명 자료형 옵션,
+	...
+);
+
+create table dec19_student(
+	s_name varchar2(10 char),
+	s_age number(3),
+	s_kor number(3),
+	s_eng number(3),
+	s_mat number(3)
+);
+
+insert into dec19_student values('홍길동', 30, 100, 60, 90);
+insert into dec19_student values('김길동', 35, 10, 6, 9);
+
+select * from dec19_student;
+
+select avg(s_kor + s_eng + s_eng) / 3
+from dec19_student;
+
+
+
+-- CRUD(Create Read Update Delete)
+
+-- .csv를 numpy/pandas로 분석...
+
+-- 데이터는 DB서버에(2TB)
+-- 인터넷으로 받아와서 : RAM에
+-- numpy/pandas
+
+-- 데이터는 DB서버에(2TB)
+-- DB서버 : 좋은컴
+-- 좋은컴에서 분석해서 가져오지
+
+
+
+
+
+
+
+
+
+
+
+

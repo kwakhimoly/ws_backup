@@ -1,0 +1,16 @@
+-- 통계함수 : sum(), avg(), max(), min(), count()
+-- 데이터 조회 - R
+select 필드명, 필드명 as 닉네임, 연산자사용가능, 통계함수, ...
+from 테이블명, 테이블명, ...
+where 조건식;
+
+-- join
+--		모든 경우의 수 별로 다 붙이고
+--		그 중에 맞는것만 가져오기
+
+-- 매장명, 층, 품명, 가격
+select s_name, s_floor, p_name, p_price
+from dec21_shop, dec21_product
+where s_name = p_s_name;
+
+

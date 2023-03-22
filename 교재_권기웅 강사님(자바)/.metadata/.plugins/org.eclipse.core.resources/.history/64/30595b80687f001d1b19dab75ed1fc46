@@ -1,0 +1,11 @@
+
+
+-- 한 줄 실행 : 커서갖다놓고 -> alt + s
+select * from dec19_product2;
+
+-- 여러 줄 실행 : 블록지정 -> alt + x
+create table dec19_product2(
+	s_name varchar2(1),
+	s_price number
+);
+

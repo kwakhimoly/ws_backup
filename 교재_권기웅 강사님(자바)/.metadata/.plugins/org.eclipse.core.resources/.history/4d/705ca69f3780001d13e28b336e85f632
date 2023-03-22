@@ -1,0 +1,63 @@
+-- RDBMS(Relational DB Management System)
+--		테이블간의 관계를 중심으로...
+
+-- 요식업 프랜차이즈
+
+-- 데이터 하나에는 하나의 정보만 
+
+-- 사장님
+-- 식당
+-- 메뉴
+
+-- 사장님 : 식당 = m : n
+-- 식당 : 메뉴 = 1 : n
+
+
+
+-- 홍길동, 1999-01-01, 수원, 
+--		김밥천국, 강남, 10테이블
+--			야채김밥, 식사류, 4000원
+--			제육덮밥, 식사류, 6000원
+-- 김길동, 2000-12-12, 안양
+--		우동천국, 구로, 8테이블
+--			기본우동, 식사류, 5000원
+--			소주, 주류, 5000원
+--------------------------------------------
+create sequence dec20_seq;
+
+create table dec20_ceo(
+	c_no number(2) primary key,
+	c_name varchar2(10 char) not null,
+	c_birthday date not null,
+	c_home varchar2(5 char) not null
+);
+insert into dec20_ceo values(dec20_seq.nextval, '최길동', to_date('20030101', 'YYYYMMDD'), '수원');
+
+create table dec20_restaurant(
+	r_no number(2) primary key,
+	r_name varchar2(10 char) not null,
+	r_where varchar2(5 char) not null,
+	r_table number(2) not null
+);
+insert into dec20_restaurant values(dec20_seq.nextval, '커피천국', '인천', 3);
+
+create table dec20_menu(
+	m_no number(2) primary key,
+	m_name varchar2(10 char) not null,
+	m_category varchar2(5 char) not null,
+	m_price number(5) not null,
+	m_r_no number(2) not null
+);
+
+select * from dec20_ceo;
+select * from dec20_restaurant;
+
+
+
+
+
+
+
+
+
+

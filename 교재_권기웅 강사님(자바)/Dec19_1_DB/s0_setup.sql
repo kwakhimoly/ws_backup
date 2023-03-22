@@ -1,0 +1,57 @@
+--1. 서버로 쓸 pc에 OracleDB 11gR2XE 설치, 방화벽 끄기
+--------------------------------------------------------
+--2. 서버 정보 확인
+--	서버의 IP주소 : 192.168.0.32
+--	서버의 포트번호 : 1521
+--	관리자ID : admin
+--	관리자PW : 1
+--	DB이름[SID] : xe
+--	DB파일저장될폴더경로 : C:\ODB
+--
+--	sqlplus 아이디/비번@IP주소:포트번호/DB이름
+--------------------------------------------------------
+--서버자리]
+--3. 원격접속되는 관리자 계정 만들기
+--3-0. cmd
+--	시작 - cmd
+--3-1. 로컬관리자로 접속
+--	sqlplus / as sysdba
+--3-2. 관리자 계정 만들기
+--	create user 아이디 identified by 비번;
+--3-3. 권한설정
+--	grant connect, resource, dba to 아이디;
+--4. DB파일 저장될 폴더 하나 확보[C:\ODB]
+-------------------------------------------------------
+--OracleDB에 접속하려면
+--oracle.com
+--instant client검색
+--Instant Client for Microsoft Windows (x64) 64-bit
+--	Basic Package, SQL*Plus Package, JDBC Supplement Package 
+--	=> 한군데 뭉쳐지게 풀기
+--안되면 vcredist_x64.exe설치하고...
+-------------------------------------------------------
+--내 자리]
+--5-0. cmd
+--	instantclient폴더에서 cmd
+--5-1. 원격접속되는 관리자 계정으로 서버에 접속
+--	sqlplus 아이디/비번@IP주소:포트번호/DB이름
+--	sqlplus admin/1@192.168.0.32:1521/xe
+--5-2. 내 계정 만들기
+--	create user 아이디 identified by 비번;
+--	create user kwon identified by 1;
+--5-3. role(권한세트)부여
+--	grant connect, resource to 아이디;
+--	grant connect, resource to kwon;
+--5-4. 앞으로 그 계정이 사용할 tablespace만들기
+--	create tablespace TS명 datafile '경로/XXX.dbf' size 500m;
+--	create tablespace kwonTS datafile 'C:/ODB/kwon.dbf' size 500m;
+--5-5. tablespace를 계정에 할당
+--	alter user 아이디 default tablespace TS명;
+--	alter user kwon default tablespace kwonTS;
+----------------------------------------------------
+--내 자리]
+--6-0. cmd
+--	instantclient폴더에서 cmd
+--6-1. 본인 계정으로 서버에 접속
+--	sqlplus 아이디/비번@IP주소:포트번호/SID
+--	sqlplus 아이디/비번@IP주소:1521/xe

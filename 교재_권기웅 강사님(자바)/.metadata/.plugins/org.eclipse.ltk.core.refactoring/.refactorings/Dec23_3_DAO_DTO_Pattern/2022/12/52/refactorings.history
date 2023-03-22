@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.kwon.dec233ddp.main.M&apos; to &apos;BookDAO&apos;&#x0D;&#x0A;- Original project: &apos;Dec23_3_DAO_DTO_Pattern&apos;&#x0D;&#x0A;- Original element: &apos;com.kwon.dec233ddp.main.M&apos;&#x0D;&#x0A;- Renamed element: &apos;com.kwon.dec233ddp.main.BookDAO&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;M&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.kwon.dec233ddp.main{M.java[M" matchStrategy="1" name="BookDAO" qualified="false" references="true" similarDeclarations="false" stamp="1671763192261" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,48 @@
+-- 통계함수 : sum(), avg(), max(), min(), count()
+-- 데이터 조회 - R
+select 필드명, 필드명 as 닉네임, 연산자사용가능, 통계함수, ...
+from 테이블명
+where 조건식;
+
+-- 1000원 미만은 몇 종류
+
+
+-- 새우깡 가격
+select s_price
+from dec20_snack
+where s_name = '새우깡';
+
+
+-- 3000원 이하인 과자의 이름, 유통기한, 가격
+select s_name, s_exp, s_price
+from dec20_snack
+where s_price <= 3000;
+
+-- 총 과자 몇 종류, g당가격의 평균
+select count(*), avg(s_price / s_weight)
+from dec20_snack;
+
+-- 평균가
+select avg(s_price)
+from dec20_snack;
+
+-- 이름, 가격, g당 가격
+select s_name, s_price, s_price / s_weight
+from dec20_snack;
+
+-- 이름, 가격, 부가세
+select s_name, s_price, s_price * 0.1 as vat
+from dec20_snack;
+
+-- 이름, 유통기한만(필드명 바꿔서)
+select s_name, s_exp as exp_date
+from dec20_snack;
+
+-- 이름, 가격만
+select s_name, s_price
+from dec20_snack;
+
+
+
+
+

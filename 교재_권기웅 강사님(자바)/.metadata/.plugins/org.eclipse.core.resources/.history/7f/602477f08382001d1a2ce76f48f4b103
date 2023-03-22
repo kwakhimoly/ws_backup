@@ -1,0 +1,7 @@
+create table sd_academy(
+	
+);
+
+create table sd_device(
+
+);

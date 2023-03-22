@@ -1,0 +1,27 @@
+package com.kwon.dec221jdbc.main;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+// 지점명 : 
+// 위치 : 
+// 크기 : 
+
+public class InsertMain {
+	public static void main(String[] args) {
+		Connection con = null;
+		try {
+			String url = "jdbc:oracle:thin:@192.168.0.32:1521:xe";
+			con = DriverManager.getConnection(url, "teacher", "1");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {con.close();} catch (Exception e) {}
+	}
+}
+
+
+
+
+
+

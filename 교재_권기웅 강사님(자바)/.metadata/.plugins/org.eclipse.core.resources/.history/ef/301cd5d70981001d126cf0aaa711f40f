@@ -1,0 +1,15 @@
+-- 웹사이트
+
+create table dec21_member(
+	m_id varchar2(10 char) primary key,
+	m_pw varchar2(10 char) not null,
+	m_name varchar2(10 char) not null
+);
+insert into dec21_member values('hong', '123', '홍길동');
+create table dec21_bbs(
+	b_no number(2) primary key,
+	b_title varchar2(10 char) not null,
+	b_date date not null,
+	b_m_id varchar2(10 char) not null
+);
+insert into dec21_bbs values(1, 'ㅋㅋㅋ', sysdate, 'hong');

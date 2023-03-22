@@ -1,0 +1,20 @@
+package com.kwon.sddevice.main;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import kiung.kwon.db.manager.KwonDBManager;
+
+// M : back-end개발자
+public class DeviceDAO {
+	public static void regDevice(Device d) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = KwonDBManager.connect("jdbc:oracle:thin:@192.168.0.32:1521:xe", "teacher", "1");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		KwonDBManager.close(con, pstmt, null);
+	}
+}

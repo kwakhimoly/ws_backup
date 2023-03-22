@@ -1,0 +1,25 @@
+-- SQL(Structured Query Language)
+--		RDBMS를 제어하는 언어
+--		OracleDB든 MySQL이든 99%는 같음
+--		대소문자 구별x -> 대문자로 인식
+----------------------------------------
+-- 열(column) : 필드(field)
+-- 행(row) : 데이터(data), 레코드(record) 
+
+-- 테이블 만들기
+create table 테이블명(
+	필드명 자료형 옵션,
+	필드명 자료형 옵션,
+	...
+);
+
+-- CRUD(Create Read Update Delete)
+
+
+
+
+
+
+
+
+

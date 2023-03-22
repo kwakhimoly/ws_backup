@@ -1,0 +1,12 @@
+package com.kwon.dec162uc.main;
+
+import java.util.Scanner;
+
+public class asdlkAJD {
+	public static void main(String[] args) {
+		Scanner k = new Scanner(System.in);
+		System.out.print("이름 : ");
+		String n = k.next();
+		System.out.println(k.next());
+	}
+}

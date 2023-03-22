@@ -1,0 +1,17 @@
+package com.kwon.dec121oop.main;
+
+// 객체 만드는 문법
+//	패키지명.클래스명 변수명 = new 패키지명.생성자(...);
+
+// 패키지명 생략가능
+//		같은 패키지
+public class OMain3 {
+	public static void main(String[] args) {
+		com.kwon.dec121oop.animal.Cat c 
+			= new com.kwon.dec121oop.animal.Cat("나비", 1);
+		c.print();
+		
+		Cup cc = new Cup();
+		
+	}
+}

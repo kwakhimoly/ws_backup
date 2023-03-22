@@ -1,0 +1,15 @@
+package com.kwon.dec232mvc.main;
+
+// M쪽에서 사칙연산 메소드 하나로
+
+
+// MainController
+public class HomeController {
+	public static void main(String[] args) {
+		ConsoleScreen cs = new ConsoleScreen();
+		int x = cs.getX();
+		int y = cs.getY();
+		// ...
+		cs.cut();
+	}
+}

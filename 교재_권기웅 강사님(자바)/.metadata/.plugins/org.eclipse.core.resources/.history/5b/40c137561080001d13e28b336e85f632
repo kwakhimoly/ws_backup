@@ -1,0 +1,6 @@
+-- 데이터 조회 - R
+
+-- 다
+select * from dec20_snack;
+
+-- 이름, 가격만

@@ -1,0 +1,11 @@
+package com.kwon.dec222a.main;
+
+// PP -> OOP -> 
+// AOP(Aspect Oriented Programming)
+//	 관점 지향 프로그래밍
+public class AMain {
+	public static void main(String[] args) {
+		// 30살 홍길동이라는 사람
+		// 정보출력
+	}
+}

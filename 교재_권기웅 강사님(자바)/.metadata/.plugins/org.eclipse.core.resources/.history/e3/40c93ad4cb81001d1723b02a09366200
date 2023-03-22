@@ -1,0 +1,8 @@
+package com.kwon.dec222a.main;
+
+
+public class AMain {
+	public static void main(String[] args) {
+		
+	}
+}

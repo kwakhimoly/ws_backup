@@ -1,0 +1,39 @@
+-- 통계함수 : sum(), avg(), max(), min(), count()
+-- 데이터 조회 - R
+select 필드명, 필드명 as 닉네임, 연산자사용가능, 통계함수, ...
+from 테이블명, 테이블명, ...
+where 조건식;
+
+-- join
+--		모든 경우의 수 별로 다 붙이고
+--		그 중에 맞는것만 가져오기
+--		필드명 같다면 테이블명.필드명
+
+-- 매장명, 층, 품명, 가격
+select s_name, s_floor, p_name, p_price
+from dec21_shop, dec21_product
+where s_name = p_s_name;
+
+-- 빌딩명, 위치, 매장명, 층
+select b_name, b_addr, s_name, s_floor
+from dec21_building, dec21_shop
+where dec21_building.b_name = dec21_shop.s_b_name;
+
+-- 빌딩명, 위치, 매장명, 층, 품명, 가격
+select b_name, b_addr, s_name, s_floor, p_name, p_price
+from dec21_building, dec21_shop, dec21_product
+where b_name = s_b_name and s_name = p_s_name;
+
+-- subquery : where에 통계함수 못쓰니까
+
+-- 12번지에 가면 살수있는거 품명, 가격
+select p_name, p_price 
+from dec21_building, dec21_shop, dec21_product
+where b_name = s_b_name 
+	and s_name = p_s_name 
+	and b_addr = '사거리쪽';
+
+
+
+
+

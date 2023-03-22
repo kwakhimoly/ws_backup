@@ -1,0 +1,21 @@
+package com.kwon.dec233ddp.main;
+
+import java.sql.Connection;
+
+import kiung.kwon.db.manager.KwonDBManager;
+
+// oracleDB랑 연결 -> OracleDriver가 없 -> ojdbc8.jar
+// kwonDBManager_v1.0.jar
+public class HomeController {
+	public static void main(String[] args) {
+		Connection con = null;
+		try {
+			con = KwonDBManager.connect("jdbc:oracle:thin:@192.168.0.32:1521:xe", "teacher", "1");
+			System.out.println("ㅇㅇ");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		KwonDBManager.close(con, null, null);
+		
+	}
+}

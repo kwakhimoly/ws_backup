@@ -1,0 +1,11 @@
+package com.kwon.dec221jdbc.main;
+
+// 지점명 : 
+public class DeleteMain {
+	public static void main(String[] args) {
+		
+	}
+}
+
+
+

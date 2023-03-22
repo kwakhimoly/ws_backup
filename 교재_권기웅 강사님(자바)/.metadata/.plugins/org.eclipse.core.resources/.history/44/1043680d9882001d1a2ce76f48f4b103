@@ -1,0 +1,23 @@
+package com.kwon.sddevice.main;
+
+// C : PL급 back-end개발자
+public class HomeController {
+	public static void main(String[] args) {
+		ConsoleScreen cs = new ConsoleScreen();
+		int menu = 0;
+		try {
+			while (true) {
+				menu = cs.showMainMenu();
+				if (menu == 10) {
+					break;
+				} else if (menu == 1) {
+					cs.showRegDeviceMenu();
+					// DB에 넣고
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("저기요...");
+		}
+		cs.bye();
+	}
+}

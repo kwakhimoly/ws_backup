@@ -1,0 +1,17 @@
+package kiung.kwon.db.manager;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+// 회사가서도 쓰게
+public class KwonDBManager {
+	public static Connection connect(String url, String id, String pw) {
+		return DriverManager.getConnection(url, id, pw);
+	}
+	public static void close() {
+		
+	}
+}
+
+
+

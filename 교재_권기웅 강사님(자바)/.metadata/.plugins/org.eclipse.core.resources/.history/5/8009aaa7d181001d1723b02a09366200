@@ -1,0 +1,10 @@
+package kiung.kwon.db.manager;
+
+public class KwonDBManager {
+	public static void connect() {
+		
+	}
+	public static void close() {
+		
+	}
+}

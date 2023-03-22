@@ -1,0 +1,12 @@
+package com.kwon.dec162uc.main;
+
+// []
+// List계열 : 가변사이즈 배열
+// Set계열 : 중복x - 기본형급에서나..., 순서?
+// Map계열
+//		(python : dict, obj-c : NSDictionary)
+public class UCMain5 {
+	public static void main(String[] args) {
+		
+	}
+}

@@ -1,0 +1,15 @@
+package com.kwon.dec162uc.main;
+
+// [] : 0 -> ㅋ
+// List계열 : 0 -> ㅋ
+// Set계열 : 0 -> ?
+// Map계열 : 순서x, 키 -> 값  
+//		(python : dict, obj-c : NSDictionary)
+public class UCMain5 {
+	public static void main(String[] args) {
+		
+	}
+}
+
+
+

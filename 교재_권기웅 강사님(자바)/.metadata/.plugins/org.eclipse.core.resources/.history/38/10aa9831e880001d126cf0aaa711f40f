@@ -1,0 +1,67 @@
+-- 통계함수 : sum(), avg(), max(), min(), count()
+-- 데이터 조회 - R
+select 필드명, 필드명 as 닉네임, 연산자사용가능, 통계함수, ...
+from 테이블명, 테이블명, ...
+where 조건식
+order by 필드명 (desc), 필드명 (desc), ...;
+
+-- join
+--		모든 경우의 수 별로 다 붙이고
+--		그 중에 맞는것만 가져오기
+--		필드명 같다면 테이블명.필드명
+--		데이터 갯수를 폭발적으로 늘려서 RAM에 저장...
+--		어쩔수 없을때만		
+
+-- 매장명, 층, 품명, 가격
+select s_name, s_floor, p_name, p_price
+from dec21_shop, dec21_product
+where s_name = p_s_name;
+
+-- 빌딩명, 위치, 매장명, 층
+select b_name, b_addr, s_name, s_floor
+from dec21_building, dec21_shop
+where dec21_building.b_name = dec21_shop.s_b_name;
+
+-- 빌딩명, 위치, 매장명, 층, 품명, 가격
+select b_name, b_addr, s_name, s_floor, p_name, p_price
+from dec21_building, dec21_shop, dec21_product
+where b_name = s_b_name and s_name = p_s_name;
+
+-- subquery : where에 통계함수 못쓰니까
+--			  테이블 여러개...
+
+-- 12번지에 가면 살수있는거 품명, 가격 - 이러지맙시다
+select p_name, p_price 
+from dec21_building, dec21_shop, dec21_product
+where b_name = s_b_name 
+	and s_name = p_s_name 
+	and b_addr = '사거리쪽';
+
+-- 무슨관, 몇층에, 상품, 카테고리, 가격
+-- 을 건물명 -> 가격 내림차순
+select s_b_name, s_floor, p_name, p_cate, p_price
+from dec21_shop, dec21_product
+where s_name = p_s_name
+order by s_b_name, p_price desc;
+
+-- 평균가 이상인거
+-- 무슨관, 위치, 매장명, 몇층에, 상품명, 카테고리, 가격
+-- 상품명 -> 가격 내림차순
+select b_name, b_addr, s_name, s_floor, p_name, p_cate, p_price
+from dec21_building, dec21_shop, dec21_product
+where b_name = s_b_name 
+	and s_name = p_s_name
+	and p_price >= (
+		select avg(p_price)
+		from dec21_product
+	)
+order by p_name, p_price desc;
+
+-- 상품정보 다
+-- 매장명 -> 상품명
+
+
+
+
+
+

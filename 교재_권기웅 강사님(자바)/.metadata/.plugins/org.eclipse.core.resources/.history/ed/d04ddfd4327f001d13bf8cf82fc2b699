@@ -1,0 +1,27 @@
+package com.kwon.dec162uc.main;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+// []
+// List계열 : 가변사이즈 배열
+// Set계열 : 중복x, 순서?
+// Map계열
+public class UCMain4 {
+	public static void main(String[] args) {
+		HashSet<String> hs = new HashSet<>();
+		hs.add("ㅋ");
+		hs.add("ㅎ");
+		hs.add("ㅎ");
+		hs.add("ㅎ");
+		System.out.println(hs.size());
+		// Set -> List
+		ArrayList<String> al = new ArrayList<>(hs);
+		for (String string : al) {
+			System.out.println(string);
+		}
+	}
+}
+
+
+

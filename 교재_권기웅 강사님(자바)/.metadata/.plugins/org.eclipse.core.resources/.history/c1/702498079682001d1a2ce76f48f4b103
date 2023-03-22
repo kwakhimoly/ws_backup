@@ -1,0 +1,15 @@
+package com.kwon.sddevice.main;
+
+// 멤버변수명 DB필드명 같을 필요는 없
+
+public class Device {
+	private int no;
+	private String name;
+	private String cate;
+	private int price;
+	private String where;
+}
+
+
+
+

@@ -1,0 +1,39 @@
+package com.kwon.dec233ddp.main;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import kiung.kwon.db.manager.KwonDBManager;
+
+// DAO/DTO패턴 : DB관련 작업이 있는 MVC패턴
+// 		DAO(Data Access Object) : DB관련 작업하는 M
+// 		DTO(Data Temp/Transfer Object)
+public class BookDAO {
+	
+	public static ArrayList<Book> getBook() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = KwonDBManager.connect("jdbc:oracle:thin:@192.168.0.32:1521:xe", "teacher", "1");
+			String sql = "select * from dec22_book";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			// V : 디자이너 : java못해 -> 작업난이도를 낮춰놔야
+			
+			while (rs.next()) {
+				System.out.println(rs.getString("b_title"));
+				System.out.println(rs.getInt("b_price"));
+				System.out.println("----");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		KwonDBManager.close(con, pstmt, rs);
+	}
+}
+
+
+

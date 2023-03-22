@@ -1,0 +1,40 @@
+package com.kwon.dec231mvc.main;
+
+// 프로젝트
+//		고객
+//		PM
+//		PL
+//		개발자
+//		디자이너
+
+// MVC패턴
+//		한 파일은 한명이 책임지고 끝내자
+//		한 파일은 M/V/C 중에 한 역할만 하자
+
+// Model - 개발자 + 고객
+//		비즈니스 로직
+//		실제 계산하는
+// View - 디자이너
+//		사용자에게 보여지는 영역
+//		입력받고, 결과 출력하고
+// Controller - PL급 개발자
+//		흐름제어
+//		상황 판단해서 
+//		M이 필요하면 M소환, V가 필요하면 V소환
+
+// Java
+// DB
+// JDBC
+// 웹 기본 : HTML + CSS
+// JSP : JDBC + HTML + CSS -> 웹사이트
+// JSP Model 2 : JSP에 MVC패턴 건거
+// Spring : JSP Model 2의 발전형
+
+
+
+public class C {
+
+}
+
+
+

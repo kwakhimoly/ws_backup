@@ -1,0 +1,14 @@
+package com.kwon.dec233ddp.main;
+
+// DAO/DTO패턴 : DB관련 작업이 있는 MVC패턴
+// 		DAO(Data Access Object) : DB관련 작업하는 M
+// 		DTO(Data Temp/Transfer Object)
+
+public class BookDAO {
+	public static void alskdjflkasdfj() {
+		
+	}
+}
+
+
+

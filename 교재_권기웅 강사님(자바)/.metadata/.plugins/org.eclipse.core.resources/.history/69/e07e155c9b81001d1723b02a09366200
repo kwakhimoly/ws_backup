@@ -1,0 +1,7 @@
+package com.kwon.dec221jdbc.main;
+
+public class ConnectMain {
+	public static void main(String[] args) {
+		
+	}
+}

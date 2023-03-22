@@ -1,0 +1,24 @@
+package com.kwon.sddevice.main;
+
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class main {
+	public static void main(String[] args) {
+		Date d =  new Date();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		
+		String s = "11111";
+		s = sdf.format(d);
+		
+		System.out.println(s);
+		
+		
+		System.out.println(d);
+		
+		
+		
+	}
+}

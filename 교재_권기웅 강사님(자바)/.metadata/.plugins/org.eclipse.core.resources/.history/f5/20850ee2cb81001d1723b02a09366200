@@ -1,0 +1,10 @@
+package com.kwon.dec222a.main;
+
+// PP -> OOP -> 
+// AOP
+
+public class AMain {
+	public static void main(String[] args) {
+		
+	}
+}

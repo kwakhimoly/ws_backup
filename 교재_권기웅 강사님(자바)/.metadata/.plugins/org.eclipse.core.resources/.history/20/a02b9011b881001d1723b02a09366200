@@ -1,0 +1,21 @@
+package com.kwon.dec221jdbc.main;
+
+// 지점명 : 
+public class DeleteMain {
+	public static void main(String[] args) {
+		try {
+			// 연결
+			// 데이터챙기고
+			// SQL(미완성)
+			// 매니저
+			// SQL완성
+			// 실행, 결과처리
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		// 정리
+	}
+}
+
+
+

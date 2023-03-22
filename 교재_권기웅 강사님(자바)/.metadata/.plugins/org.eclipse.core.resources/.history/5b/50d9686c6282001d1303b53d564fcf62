@@ -1,0 +1,30 @@
+package com.kwon.dec232mvc.main;
+
+import java.util.Scanner;
+// 멤버변수
+// 지역변수 - ?
+// 파라메터
+
+// System.in : 콘솔창에 붙어있는 콘 -> 프 빨대
+// Scanner : 빨대보조기구
+public class ConsoleScreen {
+	private Scanner strawSystem;
+	
+	public ConsoleScreen() {
+		strawSystem = new Scanner(System.in);
+	}
+	
+	public static int getX() {
+		System.out.print("x : ");
+		int x = k.nextInt();
+		//k.close(); // 닫아야, 다시는 못씀
+		return x;
+	}
+	public static int getY() {
+		Scanner k = new Scanner(System.in);
+		System.out.print("y : ");
+		int y = k.nextInt();
+		k.close();
+		return y;
+	}
+}

@@ -1,0 +1,9 @@
+package com.kwon.dec232mvc.main;
+
+// MainController
+public class HomeController {
+	public static void main(String[] args) {
+		int x = ConsoleScreen.getX();
+		int y = ConsoleScreen.getY();
+	}
+}

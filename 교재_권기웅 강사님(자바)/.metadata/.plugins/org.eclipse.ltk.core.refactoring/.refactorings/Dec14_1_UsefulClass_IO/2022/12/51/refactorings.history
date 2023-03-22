@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;k&apos; in &apos;com.kwon.dec141uc.main.FWMain2.main(...)&apos; to &apos;key&apos;&#x0D;&#x0A;- Original project: &apos;Dec14_1_UsefulClass_IO&apos;&#x0D;&#x0A;- Original element: &apos;com.kwon.dec141uc.main.FWMain2.main(String[]).k&apos;&#x0D;&#x0A;- Renamed element: &apos;k&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;k&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.kwon.dec141uc.main{FWMain2.java[FWMain2~main~\[QString;@k!543!577!551!551!QScanner;!0!false" name="key" references="true" stamp="1671000223031" version="1.0"/>
+</session>

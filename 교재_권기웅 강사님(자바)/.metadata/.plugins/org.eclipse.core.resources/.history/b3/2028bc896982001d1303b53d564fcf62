@@ -1,0 +1,13 @@
+package com.kwon.dec233ddp.main;
+
+// oracleDB랑 연결 -> OracleDriver가 없 -> ojdbc8.jar
+// kwonDBManager_v1.0.jar
+public class HomeController {
+	public static void main(String[] args) {
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

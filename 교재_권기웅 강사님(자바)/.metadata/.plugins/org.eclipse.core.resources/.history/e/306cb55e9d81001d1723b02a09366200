@@ -1,0 +1,28 @@
+package com.kwon.dec221jdbc.main;
+
+// Java : SunMicrosystems
+// SCJP 5.0
+
+// Oracle이 Sun을 인수
+// OCJP 
+
+// DB메이커는 다양한데 그것들이 통신방식 다 다르고
+// Java입장에서 그 다양한 메이커들 통신을 작업해줄수가
+// => 통신은 가능한데, 
+//	최종적으로 그 서버에 연결에 쓸 Driver를 만들어줄수가...
+
+// Java입장에서 자기 회사제품인 OracleDB거는
+// 해줄만하지
+
+// DB서버랑 통신
+//		OracleDB
+//		MySQL
+//		MariaDB
+//		SQLPlus
+//		...
+
+public class ConnectMain {
+	public static void main(String[] args) {
+		
+	}
+}
